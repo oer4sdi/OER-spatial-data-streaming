@@ -8,9 +8,7 @@ Requires Docker and Docker Compose (Linux OS)
 Installation
 -------------------
 
-```
-All installation steps are available here: https://docs.docker.com/get-docker/
-```
+Docker installation steps are available here: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
 
 Usage
 -------------------
