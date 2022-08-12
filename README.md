@@ -5,6 +5,13 @@ Mock stream producer for CSV data using Kafka. This repository is to support the
 
 Requires Docker and Docker Compose (Linux OS)
 
+Installation
+-------------------
+
+```
+All installation steps are available here: https://docs.docker.com/get-docker/
+```
+
 Usage
 -------------------
 
