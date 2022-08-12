@@ -1,7 +1,7 @@
 Data Streaming Using Kafka
 ============
 
-Mock stream producer for CSV data using Kafka.
+Mock stream producer for CSV data using Kafka. This repository is to support the OER course for the *PM 2.5 | Real Time streaming course*
 
 Requires Docker and Docker Compose (Linux OS)
 
