@@ -1,0 +1,8 @@
+confluent-kafka==1.7.0
+python-dateutil==2.8.2
+geopandas
+jupyter
+pandas
+numpy
+sklearn
+pysal
