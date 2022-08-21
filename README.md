@@ -43,7 +43,7 @@ docker run hello-world (Test)
 
 *Windows*
 
-Executable file can be downloaded from (here)[https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe]
+Executable file can be downloaded from [https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe]
 
 
 Usage
