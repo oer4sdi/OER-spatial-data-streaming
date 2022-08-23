@@ -53,7 +53,7 @@ Clone repo and cd into directory.
 
 ```
 git clone https://github.com/oer4sdi/spatial-streaming.git
-cd data-streaming-kafka
+cd data-streaming
 ```
 
 **Start the Kafka broker**
