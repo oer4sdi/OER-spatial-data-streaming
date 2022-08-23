@@ -81,7 +81,7 @@ docker run -it --rm --network=host kafkacsv python bin/sendStream.py data/sample
 To start a consumer for printing all messages in real-time from the stream "pm25_stream":
 
 ```
-docker run -it --rm --network=host -v D:\geoinformatica\data-stream-kafka\:/home kafkacsv python bin/processStream.py pm25_stream
+docker run -it --rm --network=host -v {C:\path\to\spatial-streaming\}:/home kafkacsv python bin/processStream.py pm25_stream
 ```
 
 **Shut down and clean up**
