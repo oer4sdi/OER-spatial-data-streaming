@@ -52,7 +52,7 @@ Usage
 Clone repo and cd into directory.
 
 ```
-git clone 
+git clone https://github.com/oer4sdi/spatial-streaming.git
 cd data-streaming-kafka
 ```
 
