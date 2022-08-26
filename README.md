@@ -81,7 +81,7 @@ docker build -t "oerkafka" .
 
 Samples from 10 random locations around Geramny for *Air Quality PM 2.5* were collected from [Opensensemap](https://opensensemap.org/) for August, 2022. Following is the distribution. We will use these points to interpolate the levels around Germany. The size of Red Marker signifies the amount of PM 2.5 recorded in that location.
 
-
+<img src="https://github.com/oer4sdi/spatial-streaming/blob/main/img/input_data.png" />
 
 **Run Kafka Producer**
 
