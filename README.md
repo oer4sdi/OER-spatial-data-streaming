@@ -133,7 +133,9 @@ A pre-generated output is already available in `data/interpolated_cropped.tif`
 
 | Interpolated Output | Input Overlayed |
 | --------------- | --------------- |
-|  |  |
+| 
+<img src="https://github.com/oer4sdi/spatial-streaming/blob/main/img/output_interpolated.png" width="300"/> | 
+<img src="https://github.com/oer4sdi/spatial-streaming/blob/main/img/output_compared.png" width="300"/> |
 
 **Shut down and clean up**
 
