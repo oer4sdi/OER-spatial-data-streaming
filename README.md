@@ -37,7 +37,7 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 
-docker run hello-world (Test)
+docker run hello-world
 
 ```
 
@@ -49,6 +49,10 @@ Executable file can be downloaded from [https://desktop.docker.com/win/main/amd6
 Usage
 -------------------
 
+Please ensure `docker` is up and running in background
+
+Open a relevant `Terminal/Command Prompt` in your OS
+
 Clone repo and cd into directory.
 
 ```
@@ -56,33 +60,80 @@ git clone https://github.com/oer4sdi/spatial-streaming.git
 cd spatial-streaming
 ```
 
-**Start the Kafka broker**
+**Start the Kafka broker** (To be run in a separate CMD/Terminal as it should be running in background)
 
 ```
+cd spatial-streaming
 docker compose up --build
 ```
 
-**Build a Docker image (optionally, for the producer and consumer)**
+**Build a Docker image**
 
 From the main root directory:
+Open a separate `CMD/Terminal`
 
 ```
-docker build -t "kafkacsv" .
+cd spatial-streaming
+docker build -t "oerkafka" .
 ```
 
-If you want to use Docker for the python scripts, this should now work:
+**Input Data**
+
+Samples from 10 random locations around Geramny for *Air Quality PM 2.5* were collected from [Opensensemap](https://opensensemap.org/) for August, 2022. Following is the distribution. We will use these points to interpolate the levels around Germany. The size of Red Marker signifies the amount of PM 2.5 recorded in that location.
+
+
+
+**Run Kafka Producer**
 
 ```
-docker run -it --rm --network=host kafkacsv python bin/sendStream.py data/sample.csv
+docker run -it --rm --network=host oerkafka python bin/sendStream.py data/sample_multilocation.csv
 ```
 
-**Start a consumer**
+**Start Kafka Consumer**
 
 To start a consumer for printing all messages in real-time from the stream "pm25_stream":
 
 ```
-docker run -it --rm --network=host -v {C:\path\to\spatial-streaming\}:/home kafkacsv python bin/processStream.py pm25_stream
+(Windows)
+docker run -it -exec --network=host -v C:\path\to\spatial-streaming:/home oerkafka python bin/processStream.py
+
+(Linux)
+docker run -it -exec --network=host -v $(pwd):/home oerkafka bash
 ```
+
+(Now you're working inside a terminal of the Docker Container)
+Run The Following To Launch a Jupyter Notebook
+
+
+```
+(Windows)
+docker run -it -exec -p 8888:8888 -v C:\path\to\spatial-streaming:/home oerkafka bash
+
+(Linux)
+docker run -it -exec -p 8888:8888 -v $(pwd):/home oerkafka bash
+
+jupyter notebook --ip '*' --port 8888 --allow-root --no-browser
+```
+
+GoTo your browser and access `http://localhost:8888?token=` and access `interpolation.ipynb`
+(`Token` should be available in the previous command output)
+
+Use `exit` to exit the docker shell
+
+**Results**
+
+The following files should be generated from the Jupyter Notebook
+```
+- interpolated_rectangular.tif
+- interpolated_cropped.shp (Optional)
+```
+
+You can use GIS processing tools like QGIS/ArcGIS Pro to crop the `interpolated_rectangular.tif` using `germany_simplified.shp`
+A pre-generated output is already available in `data/interpolated_cropped.tif`
+
+| Interpolated Output | Input Overlayed |
+| --------------- | --------------- |
+|  |  |
 
 **Shut down and clean up**
 

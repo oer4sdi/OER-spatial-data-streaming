@@ -1,3 +1,5 @@
+## AVOID CHANGES TO THIS FILE. IT IS USED TO RUN THE KAFKA AND ZOOKEPPER INSTANCES
+
 version: '3.8'
 
 services:
@@ -13,11 +15,12 @@ services:
     environment:
       - KAFKA_BROKER_ID=1
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:32181
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=PLAINTEXT:PLAINTEXT
       - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
       - KAFKA_AUTO_CREATE_TOPICS_ENABLE=true
     ports:
-      - "9092:9092"
+      - "9092:9092" ## These ports are used in .py files for connecting to Kafka inside Docker
     restart: on-failure
     depends_on:
       - zookeeper

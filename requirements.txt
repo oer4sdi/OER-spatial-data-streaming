@@ -6,3 +6,4 @@ pandas
 numpy
 sklearn
 pysal
+geocube

@@ -2,39 +2,42 @@
 
 """Consumes stream for printing all messages to the console.
 """
-import geopandas as gpd
 import pandas as pd
-import argparse
 import json
 import sys
 import time
 import socket
 from confluent_kafka import Consumer, KafkaError, KafkaException
-from tobler.area_weighted import area_interpolate
 
 def main():
-
+    
+    ## Consumbed message will be stored in this variable
     df = pd.DataFrame()
 
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('topic', type=str,
-                        help='Name of the Kafka topic to stream.')
+    ## Set topic name as set in sendStream.py
+    topic = "pm25_stream"
 
-    args = parser.parse_args()
+    ### START: AVOID MAKING CHANGES ###
+
+    '''
+    Offset decides in what order to consume the message. "smallest" means read the first message that was sent at 1st position and then the others.
+    "largest" will mean to read the most 'recent' message in 1st position and then others in the same order
+    '''
 
     conf = {'bootstrap.servers': '0.0.0.0:9092',
             'default.topic.config': {'auto.offset.reset': 'smallest'},
             'group.id': socket.gethostname()}
+    ### EMD: AVOID MAKING CHANGES ###
 
     consumer = Consumer(conf)
 
     running = True
-    consumer.subscribe([args.topic])
+    consumer.subscribe([topic])
 
     try:
         while running:
 
-            msg = consumer.poll(timeout=10) # wait 5 seconds before exit
+            msg = consumer.poll(timeout=10) # wait 10 seconds before exit. If no messages are received for 10 seconds, consuming will stop 
             if msg is None:
                 break
 
@@ -42,10 +45,10 @@ def main():
                 if msg.error().code() == KafkaError._PARTITION_EOF:
                     # End of partition event
                     sys.stderr.write('%% %s [%d] reached end at offset %d\n' %
-                                     (msg.topic(), msg.partition(), msg.offset()))
+                                        (msg.topic(), msg.partition(), msg.offset()))
                 elif msg.error().code() == KafkaError.UNKNOWN_TOPIC_OR_PART:
                     sys.stderr.write('Topic unknown, creating %s topic\n' %
-                                     (args.topic))
+                                        (topic))
                 elif msg.error():
                     raise KafkaException(msg.error())
             else:
@@ -58,31 +61,14 @@ def main():
                 pm25 = float(key)
 
                 df = df.append([[lat, lon, pm25]])
-                
-
+    
     except KeyboardInterrupt:
         pass
-
+    
     finally:
-        # Close down consumer to commit final offsets.
         consumer.close()
-
         df.rename(columns ={0:'lat',1:'lon',2:'value'}, inplace=True)
-
-        gdf = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df.lon, df.lat))
-        gdf.set_crs(epsg=4326, inplace=True)
-        gdf.to_crs(epsg=3035, inplace=True)
-        gdf.drop(['lon','lat'], axis=1, inplace=True)
-        gdf['geometry'] = gdf.geometry.buffer(0.0001)
-        
-        area = gpd.read_file('data/de_10km.shp')
-        area.to_crs(epsg=3035, inplace=True)
-        
-        interpolation = area_interpolate(source_df=gdf, target_df=area, intensive_variables=['value'])
-        print(interpolation)
-        interpolation.to_crs(epsg=4326, inplace=True)
-        interpolation.to_file('data/interpolated.shp', driver='ESRI Shapefile')
-
+        df[['lat','lon','value']].to_csv('data/streamed_output.csv')
 
 if __name__ == "__main__":
     main()
