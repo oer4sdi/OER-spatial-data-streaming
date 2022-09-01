@@ -42,7 +42,7 @@ def main():
     p_key = args.filename
     
     ### START: AVOID MAKING CHANGES ###
-    conf = {'bootstrap.servers': "0.0.0.0:9092", 'client.id': socket.gethostname()}
+    conf = {'bootstrap.servers': "kafka:9093", 'client.id': socket.gethostname()}
     producer = Producer(conf)
     ### END: AVOID MAKING CHANGES ###
 
@@ -53,13 +53,13 @@ def main():
     for i in range(df.shape[0]): ## df.shape returns dimension of the dataframe (rows, columns)
 
         result = {} ## Init Dict
-        result[df.loc[i,'value']] = [df.loc[i,'lat'], df.loc[i,'lon']]
+        result[df.loc[i,'value']] = [df.loc[i,'lat'], df.loc[i,'lon'], str(df.loc[i,'day'])]
 
         '''
         Format of result JSON:
 
         {
-            'pm25_value_1': [lat, lon]
+            'pm25_value_1': [lat, lon, day]
         }
         '''
 

@@ -45,6 +45,7 @@ docker run hello-world
 
 Executable file can be downloaded from [https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe]
 
+`(It is recommended to have at least 8GB RAM to support smooth functioning of Docker on Windows)`
 
 Usage
 -------------------
@@ -64,61 +65,49 @@ cd spatial-streaming
 
 ```
 cd spatial-streaming
-docker compose up --build
-```
-
-**Build a Docker image**
-
-From the main root directory:
-Open a separate `CMD/Terminal`
-
-```
-cd spatial-streaming
-docker build -t "oerkafka" .
+docker compose up --build 
 ```
 
 **Input Data**
 
-Samples from 10 random locations around Geramny for *Air Quality PM 2.5* were collected from [Opensensemap](https://opensensemap.org/) for August, 2022. Following is the distribution. We will use these points to interpolate the levels around Germany. The size of Red Marker signifies the amount of PM 2.5 recorded in that location.
+Samples from 10 random locations around Geramny for *Air Quality PM 2.5* were collected from [Opensensemap](https://opensensemap.org/) for August, 2022. Following is the distribution of these locations. We will use these points to interpolate the levels around Germany. The size of Red Marker signifies the amount of PM 2.5 recorded in that location. Total sample count is `30` as each location was recorded over `3 Days`
 
 <img src="https://github.com/oer4sdi/spatial-streaming/blob/main/img/input_data.png" width="300"/>
 
-**Run Kafka Producer**
+**Event Detection & Spatial Interpolation**
+
+You should first launch the jupyter notebook, this way we can work directly inside a docker environment
+To do this, open a new terminal/CMD window and enter the following command to get the URL of the hosted Jupyter Notebook
 
 ```
-docker run -it --rm --network=host oerkafka python bin/sendStream.py data/sample_multilocation.csv
+docker-compose logs jupyter
 ```
 
-**Start Kafka Consumer**
+Goto your browser and access the url that starts with `http://localhost:8888?token=` (`Token` should be available in the previous command output)
 
-To start a consumer for printing all messages in real-time from the stream "pm25_stream":
+Once you're inside the Jupyter environment, `Goto New > Terminal`
 
-```
-(Windows)
-docker run -it -exec --network=host -v C:\path\to\spatial-streaming:/home oerkafka python bin/processStream.py
-
-(Linux)
-docker run -it -exec --network=host -v $(pwd):/home oerkafka bash
-```
-
-(Now you're working inside a terminal of the Docker Container)
-Run The Following To Launch a Jupyter Notebook
-
+*Install Python Libraries*
 
 ```
-(Windows)
-docker run -it -exec -p 8888:8888 -v C:\path\to\spatial-streaming:/home oerkafka bash
-
-(Linux)
-docker run -it -exec -p 8888:8888 -v $(pwd):/home oerkafka bash
-
-jupyter notebook --ip '*' --port 8888 --allow-root --no-browser
+pip3 install -r requirements.txt
 ```
 
-GoTo your browser and access `http://localhost:8888?token=` and access `interpolation.ipynb`
-(`Token` should be available in the previous command output)
+*Run Kafka Producer*
 
-Use `exit` to exit the docker shell
+```
+python bin/sendStream.py data/sample_multilocation.csv
+```
+
+The output on your jupyter terminal should look like this (30 Messages Sent)
+<img src="https://github.com/oer4sdi/spatial-streaming/blob/main/img/terminal.png" width="300"/>
+
+*Kafka Consumer & Analysis*
+
+Now you can  open `bin/interpolation.ipynb` to read the kafka stream, perform event detection and spatial interpolation. The jupyter notebook will guide you through the next steps
+
+Use `CTRL + C` or `docker-compse down` to exit the docker environment. 
+Next time when you want to run the environment, you can just use `docker compose up -d`
 
 **Results**
 
