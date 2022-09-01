@@ -60,6 +60,9 @@ Clone repo and cd into directory.
 git clone https://github.com/oer4sdi/spatial-streaming.git
 cd spatial-streaming
 ```
+**Change Docker Path**
+
+Before proceeding further, please change the path `C:/path/to/spatial-streaming/:/home` in `docker-compose.yml` to the location where you cloned this repo in your system.
 
 **Start the Kafka broker** (To be run in a separate CMD/Terminal as it should be running in background)
 

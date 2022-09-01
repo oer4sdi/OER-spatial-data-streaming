@@ -35,5 +35,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     container_name: jupyter
+    volumes:
+      - C:/path/to/spatial-streaming/:/home
     ports:
       - 8888:8888
