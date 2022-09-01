@@ -100,7 +100,8 @@ python bin/sendStream.py data/sample_multilocation.csv
 ```
 
 The output on your jupyter terminal should look like this (30 Messages Sent)
-<img src="https://github.com/oer4sdi/spatial-streaming/blob/main/img/terminal.png" width="300"/>
+
+<img src="https://github.com/oer4sdi/spatial-streaming/blob/main/img/terminal.png" width="600"/>
 
 *Kafka Consumer & Analysis*
 
