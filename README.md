@@ -18,7 +18,7 @@ The OER is implemented as an  [H5P](https://h5p.org/) module that can be downloa
 - H5P editing environments such as the [H5P Official Editor](https://h5p.org/) or the lightweight [LUMI H5P editor](https://lumi.education/)
 - Content managament systems such as [Wordpress](https://wordpress.com/) with "H5P" plugin installed
 
-Simply upload the H5P file to one of those environments and use it from there...
+Simply download the H5P file, upload it to one of the environments and use it from there...
 
 ### Copyright and License Statement
 
