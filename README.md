@@ -22,7 +22,7 @@ Simply upload the H5P file to one of those environments and use it from there...
 
 ### License Statement
 
-You are free to use, alter and reproduce the tutorial (H5P content) under the terms of the CC-BY-SA 4.0 license. The source code can be used under the terms of the MIT license [link]. 
+You are free to use, alter and reproduce the tutorial (H5P content) under the terms of the [CC-BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/legalcode). The source code can be used under the terms of the MIT license [link]. 
 
 ### Authors and funding
 
