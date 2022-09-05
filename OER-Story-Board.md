@@ -7,16 +7,16 @@ Storyboard
 ## Table of Content
 1. Overview	
 2. Background on IoT and analyzing PM2.5 data streams	
-    2.1 IoT and Sensor Things	
-    2.2 Analyzing near real-time data streams	
-    2.3 Stream processing with Apache Kafka	
-    2.4 Air Quality and PM2.5	
-    2.5 Test your knowledge	
+     2.1 IoT and Sensor Things	
+     2.2 Analyzing near real-time data streams	
+     2.3 Stream processing with Apache Kafka	
+     2.4 Air Quality and PM2.5	
+     2.5 Test your knowledge	
 3. Tutorial on Analyzing PM2.5 data streams with Jupyter Notebooks	
-    3.1 Installing the SW environment	
-    3.2 Preparing the PM2.5 data stream	
-    3.3 Preparing the PM2.5 monitor	
-    3.4 Test your knowledge	
+     3.1 Installing the SW environment	
+     3.2 Preparing the PM2.5 data stream	
+     3.3 Preparing the PM2.5 monitor	
+     3.4 Test your knowledge	
 4. Wrap up
 
 
