@@ -218,7 +218,7 @@ Executable file can be downloaded from [https://desktop.docker.com/win/main/amd6
 
 Samples from 10 random locations around Geramny for *Air Quality PM 2.5* were collected from [Opensensemap](https://opensensemap.org/) for August, 2022. Following is the distribution of these locations. We will use these points to interpolate the levels around Germany. The size of Red Marker signifies the amount of PM 2.5 recorded in that location. Total sample count is `30` as each location was recorded over `3 Days`
 
-<img src="https://github.com/oer4sdi/spatial-streaming/blob/main/img/input_data.png" width="300"/>
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/input_data.png" width="300"/>
 
 ### 3.3 Processing the PM2.5 data stream
 
@@ -226,17 +226,17 @@ Before developing an application it is always recommended to draw an architectur
 
 Here's one of the many possible designs (You can save it and zoom-in to view the captions)
 
-<img src="https://github.com/oer4sdi/spatial-streaming/blob/main/img/archi.png" width="1000"/>
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/archi.png" width="1000"/>
 
 **Using The Application**
 
 Please ensure `docker` is up and running in background and open a relevant `Terminal/Command Prompt` in your OS
-[Download](https://github.com/oer4sdi/spatial-streaming/archive/refs/heads/main.zip) the zipfile for the code and unzip it in a desired location
+[Download](https://github.com/oer4sdi/OER-spatial-data-streaming/archive/refs/heads/main.zip) the zipfile for the code and unzip it in a desired location
 
-Advanced users can also clone it using `git` from [here](https://github.com/oer4sdi/spatial-streaming) using the following command
+Advanced users can also clone it using `git` from [here](https://github.com/oer4sdi/OER-spatial-data-streaming) using the following command
 
 ```
-git clone https://github.com/oer4sdi/spatial-streaming.git
+git clone https://github.com/oer4sdi/OER-spatial-data-streaming.git
 ```
 
 In your CMD/Terminal, enter this:
@@ -283,7 +283,7 @@ python bin/sendStream.py data/sample_multilocation.csv
 
 The output on your jupyter terminal should look like this (30 Messages Sent)
 
-<img src="https://github.com/oer4sdi/spatial-streaming/blob/main/img/terminal.png" width="600"/>
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/terminal.png" width="600"/>
 
 *Kafka Consumer & Analysis*
 
@@ -305,7 +305,7 @@ A pre-generated output is already available in `data/interpolated_cropped.tif`
 
 | Interpolated Output | Input Overlayed |
 | --------------- | --------------- |
-| <img src="https://github.com/oer4sdi/spatial-streaming/blob/main/img/output_interpolated.png" width="300"/> | <img src="https://github.com/oer4sdi/spatial-streaming/blob/main/img/output_compared.png" width="300"/> |
+| <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/output_interpolated.png" width="300"/> | <img src="https://github.com/oer4sdi/OER-spatial-data-streamingblob/main/img/output_compared.png" width="300"/> |
 
 **Shut down and clean up**
 
