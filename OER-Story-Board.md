@@ -23,17 +23,6 @@ Storyboard
 
          	           	
 ## 1. Overview
-[
-Abstract
-Learning Objectives
-Learning activities
-Overview on the structure of the learning material
-How to use the learning material
-Target Group and required knowledge
-Authors reference
-License reference
-Funding reference
- ]
 
 In this course, you’ll learn how to use Kafka and Jupyter Notebooks (Python) to access and analyze data streams coming from IoT devices that provide air quality data (e.g. PM2.5 sensor data). 
 
