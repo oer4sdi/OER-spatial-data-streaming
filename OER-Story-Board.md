@@ -316,7 +316,29 @@ Shutdown Kafka broker system:
 ```
 docker compose down
 ```
+### 3.5 QGIS: GIS Analysis
 
+In this section you will learn how to convert your `interpolated_cropped.tif` output into one of the outputs as shown above. 
+
+- **Step 1: ** Open QGIS and drag-drop the files `interpolated_cropped.tif` and `germany_simplified.shp`
+
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/qgis_1.png" width="600"/>
+
+- **Step 2: ** From toolbar, Goto `Raster > Extract > Clip Raster by Mask Layer `
+
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/qgis_2.png" width="600"/>
+
+- **Step 3: ** Choose input layer as `interpolated_cropped.tif` and mask layer as `germany_simplified.shp`
+
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/qgis_3.png" width="600"/>
+
+- **Step 4: ** At this step, you should have a new layer "Clipped (mask)". Right Click on it and choose `Properties > Symbology`. Choose the options as show in image below i.e. (Render Type and Invert Color Ramp)
+
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/qgis_4.png" width="600"/>
+
+- **Step 5: ** You should have an output of something like this. Make sure you have turned off the other layers. Now you can right click on the layer name and export it as a `TIFF` image
+
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/qgis_5.png" width="600"/>
 
 ### 3.4 Test your knowledge
 [Quiz - tbd]
