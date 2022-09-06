@@ -152,14 +152,12 @@ Every time you execute a Docker Image, it gets converted one docker container, w
 <img src="https://miro.medium.com/max/795/1*HdrdFds-0W6KW9Hw0UP96w.png" width="250">
 *Here's a simple architecture of a Kafka system*
 
-```
 A real-world replica of this model would be your mail/letterbox.
 
 **Post-Man:** This guy is the producer, whose job is just to pick data and drop it in your mailbox
 **Mail/Letter Box:** This is your broker, the letters will keep piling up if no one comes to collect it.
 **Your Address:** This is your topic, how does the post-man know where to send this data?
 **You:** You are the consumer, it’s your responsibility to collect this data and process it further
-```
 
 - **Zookeeper:** Recently, zookeeper became an optional component but was the backbone for Kafka clusters for quite a few years. Zookeeper acts like a host on top of which Kafka brokers used to communicate, store metadata like topic names, ids etc. This component would know what servers are acting as brokers and spawns a new broker or leader in case one of the broker server fails. This component is more relevant in distributed systems where multiple servers are running in parallel.
 
@@ -223,7 +221,7 @@ Before developing an application it is always recommended to draw an architectur
 
 Here's one of the many possible designs (You can save it and zoom-in to view the captions)
 
-<img src="https://github.com/oer4sdi/spatial-streaming/blob/main/img/archi.png" width="300"/>
+<img src="https://github.com/oer4sdi/spatial-streaming/blob/main/img/archi.png" width="1000"/>
 
 **Using The Application**
 
