@@ -149,10 +149,11 @@ Every time you execute a Docker Image, it gets converted one docker container, w
 
      - **Broker:** This component acts as the bridge between producer and consumer. You can think of this as a storage space for Kafka, messages are stored by this component, waiting to be consumed by a consumer component
 
-<img src="https://miro.medium.com/max/795/1*HdrdFds-0W6KW9Hw0UP96w.png" width="250">
 Here's a simple architecture of a Kafka system
+<img src="https://miro.medium.com/max/795/1*HdrdFds-0W6KW9Hw0UP96w.png" width="250">
 
-A real-world replica of this model would be your mail/letterbox.
+
+A real-world replica of this model would be your mail/letterbox:
 
 **Post-Man:** This guy is the producer, whose job is just to pick data and drop it in your mailbox
 
