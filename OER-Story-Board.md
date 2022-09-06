@@ -44,7 +44,7 @@ You are free to use, alter and reproduce the tutorial (H5P content) under the te
 
 The OER4SDI project has been recommended by the Digital University NRW and is funded by the Ministry of Culture and Science NRW. 
  
-[@Thomas: see MKW funding notice for obligations on how to reference the funding authorities (text, ogo)]
+[@Thomas: see MKW funding notice for obligations on how to reference the funding authorities (text, logo)]
 
 ## 2. Background on IoT and analyzing PM2.5 data streams
 
