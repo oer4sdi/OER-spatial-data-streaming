@@ -118,7 +118,7 @@ processing workflow (what needs to be done)
 PM25 official thresholds
 ]
 
-# Chapter 3: Tutorial on Analyzing PM2.5 data streams with Jupyter Notebooks
+## Chapter 3: Tutorial on Analyzing PM2.5 data streams with Jupyter Notebooks
 
 In this chapter we will start with our implementation of the application from setting up the software environment to performing analytics with the data streams. Before we begin, there are few technical details you should be aware of to fully understand the functioning of this app.
 
