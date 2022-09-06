@@ -150,14 +150,18 @@ Every time you execute a Docker Image, it gets converted one docker container, w
      - **Broker:** This component acts as the bridge between producer and consumer. You can think of this as a storage space for Kafka, messages are stored by this component, waiting to be consumed by a consumer component
 
 <img src="https://miro.medium.com/max/795/1*HdrdFds-0W6KW9Hw0UP96w.png" width="250">
-*Here's a simple architecture of a Kafka system*
+Here's a simple architecture of a Kafka system
 
 A real-world replica of this model would be your mail/letterbox.
 
 **Post-Man:** This guy is the producer, whose job is just to pick data and drop it in your mailbox
-**Mail/Letter Box:** This is your broker, the letters will keep piling up if no one comes to collect it.
+
+**Mail/Letter Box:** This is your broker, the letters will keep piling up if no one comes to collect it
+
 **Your Address:** This is your topic, how does the post-man know where to send this data?
+
 **You:** You are the consumer, it’s your responsibility to collect this data and process it further
+
 
 - **Zookeeper:** Recently, zookeeper became an optional component but was the backbone for Kafka clusters for quite a few years. Zookeeper acts like a host on top of which Kafka brokers used to communicate, store metadata like topic names, ids etc. This component would know what servers are acting as brokers and spawns a new broker or leader in case one of the broker server fails. This component is more relevant in distributed systems where multiple servers are running in parallel.
 
@@ -226,9 +230,9 @@ Here's one of the many possible designs (You can save it and zoom-in to view the
 **Using The Application**
 
 Please ensure `docker` is up and running in background and open a relevant `Terminal/Command Prompt` in your OS
-(Download)[https://github.com/oer4sdi/spatial-streaming/archive/refs/heads/main.zip] the zipfile for the code and unzip it in a desired location
+[Download](https://github.com/oer4sdi/spatial-streaming/archive/refs/heads/main.zip) the zipfile for the code and unzip it in a desired location
 
-Advanced users can also clone it using `git` from (here)[https://github.com/oer4sdi/spatial-streaming] using the following command
+Advanced users can also clone it using `git` from [here](https://github.com/oer4sdi/spatial-streaming) using the following command
 
 ```
 git clone https://github.com/oer4sdi/spatial-streaming.git
