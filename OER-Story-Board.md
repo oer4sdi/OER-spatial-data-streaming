@@ -140,7 +140,7 @@ Every time you execute a Docker Image, it gets converted one docker container, w
 
 Here's a simple architecture of a Kafka system [[Source](http://cloudurable.com/blog/kafka-architecture/index.html)]
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/kafka.png" width="500">
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/kafka_archi.png" width="500">
 
 
 A real-world replica of this model would be your mail/letterbox:
