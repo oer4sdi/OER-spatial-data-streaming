@@ -30,12 +30,13 @@ services:
       - zookeeper
 
   jupyter:
-    image: jupyter/minimal-notebook:latest
+    image: oer_jupyter
     build:
       context: .
       dockerfile: ./Dockerfile
     container_name: jupyter
     volumes:
-      - C:/path/to/spatial-streaming/:/home
+      - ./src:/home/src
+      - ./data:/home/data
     ports:
       - 8888:8888

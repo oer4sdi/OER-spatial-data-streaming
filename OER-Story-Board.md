@@ -138,8 +138,8 @@ Every time you execute a Docker Image, it gets converted one docker container, w
 
      - **Broker:** This component acts as the bridge between producer and consumer. You can think of this as a storage space for Kafka, messages are stored by this component, waiting to be consumed by a consumer component
 
-Here's a simple architecture of a Kafka system
-<img src="https://miro.medium.com/max/795/1*HdrdFds-0W6KW9Hw0UP96w.png" width="250">
+Here's a simple architecture of a Kafka system [[Source](http://cloudurable.com/blog/kafka-architecture/index.html)]
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/kafka.png" width="250">
 
 
 A real-world replica of this model would be your mail/letterbox:
@@ -199,7 +199,7 @@ docker run hello-world
 
 *Windows*
 
-Executable file can be downloaded from [https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe]
+Executable file can be downloaded from [https://docs.docker.com/desktop/install/windows-install/]
 
 `(It is recommended to have at least 8GB RAM to support smooth functioning of Docker on Windows)`
 
@@ -234,10 +234,6 @@ In your CMD/Terminal, enter this:
 cd spatial-streaming
 ```
 
-**Change Docker Path**
-
-Before proceeding further, please change the path `C:/path/to/spatial-streaming/:/home` in `docker-compose.yml` to the location where you cloned this repo in your system.
-
 **Start the Kafka broker** (To be run in a separate CMD/Terminal as it should be running in background)
 
 ```
@@ -251,23 +247,17 @@ You should first launch the jupyter notebook, this way we can work directly insi
 To do this, open a new terminal/CMD window and enter the following command to get the URL of the hosted Jupyter Notebook
 
 ```
-docker-compose logs jupyter
+docker logs jupyter
 ```
 
 Goto your browser and access the url that starts with `http://localhost:8888?token=` (`Token` should be available in the previous command output)
 
 Once you're inside the Jupyter environment, `Goto New > Terminal`
 
-*Install Python Libraries*
-
-```
-pip3 install -r requirements.txt
-```
-
 *Run Kafka Producer*
 
 ```
-python bin/sendStream.py data/sample_multilocation.csv
+python src/sendStream.py data/sample_multilocation.csv
 ```
 
 The output on your jupyter terminal should look like this (30 Messages Sent)
@@ -276,7 +266,7 @@ The output on your jupyter terminal should look like this (30 Messages Sent)
 
 *Kafka Consumer & Analysis*
 
-Now you can  open `bin/interpolation.ipynb` to read the kafka stream, perform event detection and spatial interpolation. The jupyter notebook will guide you through the next steps
+Now you can  open `src/interpolation.ipynb` to read the kafka stream, perform event detection and spatial interpolation. The jupyter notebook will guide you through the next steps
 
 Use `CTRL + C` or `docker-compse down` to exit the docker environment. 
 Next time when you want to run the environment, you can just use `docker compose up -d`
