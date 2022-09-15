@@ -239,10 +239,10 @@ At this point, you should have all the three containers running: `zookeeper`, `k
 The data downloading/pre-processing can be done in an automated way using the `src/data_prep.ipynb` jupyter notebook. The data is fetched from the `Opensensemap API` available [here](https://docs.opensensemap.org/). The notebook also supports dynamic map elements using the `ipyleaflet` extension for interactive learning. 
 
 <p align="center">
-     **The map canvas will look something like this**
-</p>
+     <b>The map canvas will look something like this</b>
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/map.png" width="500"/>
+     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/map.png" width="500"/>
+</p>
 
 The following endpoints from the API are used and should not be modified:
 
@@ -258,10 +258,10 @@ In the notebook, you will be required to peform few tasks to complete the data d
 Before developing an application it is always recommended to draw an architecture diagram to understand how different components would interact with each other, what would be the data flow etc. There's no one right architecture as it is possible to design and place the same components in several different ways. What do you think would be good architecture for our application?
 
 <p align="center">
-     Here's one of the many possible designs (You can save it and zoom-in to view the captions)
-</p>
+    <b>Here's one of the many possible designs (You can save it and zoom-in to view the captions)</b>
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/archi.png" width="1000"/>
+     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/archi.png" width="1000"/>
+</p>
 
 **Event Detection & Sensor Locator**
 
@@ -285,10 +285,10 @@ python src/sendStream.py data/sample_multilocation.csv
 ```
 
 <p align="center">
-     The output on your jupyter terminal should look like this
-</p>
+     <b>The output on your jupyter terminal should look like this</b>
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/terminal.png" width="500"/>
+     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/terminal.png" width="500"/>
+</p>
 
 *Kafka Consumer & Analysis*
 
