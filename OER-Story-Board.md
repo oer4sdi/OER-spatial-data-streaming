@@ -240,8 +240,7 @@ The data downloading/pre-processing can be done in an automated way using the `s
 
 <p align="center">
      <b>The map canvas will look something like this</b>
-
-     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/map.png" width="500"/>
+     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/map.png" width="1000"/>
 </p>
 
 The following endpoints from the API are used and should not be modified:
@@ -259,7 +258,6 @@ Before developing an application it is always recommended to draw an architectur
 
 <p align="center">
     <b>Here's one of the many possible designs (You can save it and zoom-in to view the captions)</b>
-
      <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/archi.png" width="1000"/>
 </p>
 
@@ -286,15 +284,16 @@ python src/sendStream.py data/sample_multilocation.csv
 
 <p align="center">
      <b>The output on your jupyter terminal should look like this</b>
-
-     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/terminal.png" width="500"/>
+     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/terminal.png" width="1000"/>
 </p>
 
 *Kafka Consumer & Analysis*
 
 Now you can  open  to read the kafka stream, perform event detection and geo-plotting. The jupyter notebook will guide you through the next steps. The consumer output will also perform event detection in parallel with an ouput of something like this:
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/kafka_output.png" width="500"/>
+<p align="center">
+     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/kafka_output.png" width="1000"/>
+</p>
 
 Use `CTRL + C` or `docker-compse down` to exit the docker environment. 
 Next time when you want to run the environment, you can just use `docker compose up -d`
@@ -314,7 +313,7 @@ docker compose down
 Your output map should look like the following. Green markers showing active senseboxes while red markers showing inactive senseboxes.
 
 <p align="center">
-     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/output_map.png" width="500"/>
+     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/output_map.png" width="1000"/>
 </p>
 
 ## 4. Wrap up
