@@ -8,3 +8,4 @@ pysal
 geocube
 geojson
 jupyter
+ipyleaflet

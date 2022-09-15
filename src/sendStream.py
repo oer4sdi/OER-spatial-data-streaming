@@ -53,13 +53,13 @@ def main():
     for i in range(df.shape[0]): ## df.shape returns dimension of the dataframe (rows, columns)
 
         result = {} ## Init Dict
-        result[df.loc[i,'value']] = [df.loc[i,'lat'], df.loc[i,'lon'], str(df.loc[i,'day'])]
+        result[df.loc[i,'value']] = [df.loc[i,'lat'], df.loc[i,'lon'], str(df.loc[i,'day']), df.loc[i,'boxId']]
 
         '''
         Format of result JSON:
 
         {
-            'pm25_value_1': [lat, lon, day]
+            'pm25_value_1': [lat, lon, day, boxId]
         }
         '''
 

@@ -204,23 +204,10 @@ Executable file can be downloaded from [https://docs.docker.com/desktop/install/
 
 `(It is recommended to have at least 8GB RAM to support smooth functioning of Docker on Windows)`
 
-### 3.2 Preparing the PM2.5 data stream
+**Starting The Application**
 
-Samples from 10 random locations around Geramny for *Air Quality PM 2.5* were collected from [Opensensemap](https://opensensemap.org/) for August, 2022. Following is the distribution of these locations. We will use these points to interpolate the levels around Germany. The size of Red Marker signifies the amount of PM 2.5 recorded in that location. Total sample count is `30` as each location was recorded over `3 Days`
+Please ensure `docker` is up and running in background and open a relevant `Terminal/Command Prompt` in your OS.
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/input_data.png" width="300"/>
-
-### 3.3 Processing the PM2.5 data stream
-
-Before developing an application it is always recommended to draw an architecture diagram to understand how different components would interact with each other, what would be the data flow etc. There's no one right architecture as it is possible to design and place the same components in several different ways. What do you think would be good architecture for our application?
-
-Here's one of the many possible designs (You can save it and zoom-in to view the captions)
-
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/archi.png" width="1000"/>
-
-**Using The Application**
-
-Please ensure `docker` is up and running in background and open a relevant `Terminal/Command Prompt` in your OS
 [Download](https://github.com/oer4sdi/OER-spatial-data-streaming/archive/refs/heads/main.zip) the zipfile for the code and unzip it in a desired location
 
 Advanced users can also clone it using `git` from [here](https://github.com/oer4sdi/OER-spatial-data-streaming) using the following command
@@ -233,16 +220,45 @@ In your CMD/Terminal, enter this:
 
 ```
 cd spatial-streaming
+docker compose up --build -d
 ```
 
-**Start the Kafka broker** (To be run in a separate CMD/Terminal as it should be running in background)
+On successfull run, you should see a similar console output
 
 ```
-cd spatial-streaming
-docker compose up --build 
+[+] Running 4/4
+ - Network oer-spatial-data-streaming_default        Created                                                       1.5s
+ - Container jupyter                                 Started                                                      12.2s
+ - Container oer-spatial-data-streaming_zookeeper_1  Started                                                      12.2s
+ - Container oer-spatial-data-streaming_kafka_1      Started                                                      14.2s
+```
+At this point, you should have all the three containers running: `zookeeper`, `kafka` and `jupyter`
+
+### 3.2 Preparing the PM2.5 data stream
+
+The data downloading/pre-processing can be done in an automated way using the `src/data_prep.ipynb` jupyter notebook. The data is fetched from the `Opensensemap API` available [here](https://docs.opensensemap.org/). The notebook also supports dynamic map elements using the `ipyleaflet` extension for interactive learning. 
+
+The map canvas will look something like this
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/map.png" width="500"/>
+
+The following endpoints from the API are used and should not be modified:
+
+```
+sensebox_url = https://api.opensensemap.org/boxes
+sensebox_data_url = https://api.opensensemap.org/statistics/descriptive
 ```
 
-**Event Detection & Spatial Interpolation**
+In the notebook, you will be required to peform few tasks to complete the data downloading process. 
+
+### 3.3 Processing the PM2.5 data stream
+
+Before developing an application it is always recommended to draw an architecture diagram to understand how different components would interact with each other, what would be the data flow etc. There's no one right architecture as it is possible to design and place the same components in several different ways. What do you think would be good architecture for our application?
+
+Here's one of the many possible designs (You can save it and zoom-in to view the captions)
+
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/archi.png" width="1000"/>
+
+**Event Detection & Sensor Locator**
 
 You should first launch the jupyter notebook, this way we can work directly inside a docker environment
 To do this, open a new terminal/CMD window and enter the following command to get the URL of the hosted Jupyter Notebook
@@ -251,41 +267,30 @@ To do this, open a new terminal/CMD window and enter the following command to ge
 docker logs jupyter
 ```
 
-Goto your browser and access the url that starts with `http://localhost:8888?token=` (`Token` should be available in the previous command output)
+Goto your browser and access the url that starts with `http://127.0.0.1:8888/?token=` (`token` should be available in the previous command output)
 
-Once you're inside the Jupyter environment, `Goto New > Terminal`
+You should now start downloading the data from `src/data_prep.ipynb` and then process this data using `src/event_processing.ipynb`
 
 *Run Kafka Producer*
+
+After downloading the data, you can choose to run the kafka producer script within the notebook (explained in the notebook) or go to your jupyter homepage, select `Open > New Terminal` and enter the following command:
 
 ```
 python src/sendStream.py data/sample_multilocation.csv
 ```
 
-The output on your jupyter terminal should look like this (30 Messages Sent)
+The output on your jupyter terminal should look like this
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/terminal.png" width="600"/>
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/terminal.png" width="500"/>
 
 *Kafka Consumer & Analysis*
 
-Now you can  open `src/interpolation.ipynb` to read the kafka stream, perform event detection and spatial interpolation. The jupyter notebook will guide you through the next steps
+Now you can  open  to read the kafka stream, perform event detection and geo-plotting. The jupyter notebook will guide you through the next steps. The consumer output will also perform event detection in parallel with an ouput of something like this:
+
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/kafka_output.png" width="500"/>
 
 Use `CTRL + C` or `docker-compse down` to exit the docker environment. 
 Next time when you want to run the environment, you can just use `docker compose up -d`
-
-**Results**
-
-The following files should be generated from the Jupyter Notebook
-```
-- interpolated_rectangular.tif
-- interpolated_cropped.shp (Optional)
-```
-
-You can use GIS processing tools like QGIS/ArcGIS Pro to crop the `interpolated_rectangular.tif` using `germany_simplified.shp`
-A pre-generated output is already available in `data/interpolated_cropped.tif` (Explained in next section)
-
-| Interpolated Output | Input Overlayed |
-| --------------- | --------------- |
-| <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/output_interpolated.png" width="300"/> | <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/output_compared.png" width="300"/> |
 
 **Shut down and clean up**
 
@@ -296,33 +301,12 @@ Shutdown Kafka broker system:
 ```
 docker compose down
 ```
-### 3.5 QGIS: Raster/Vector Merging
 
-In this section you will learn how to convert your `interpolated_cropped.tif` output into one of the outputs as shown above. 
+### 3.4 Results
 
-- **Step 1:** Open QGIS and drag-drop the files `interpolated_cropped.tif` and `germany_simplified.shp`
+Your output map should look like the following. Green markers showing active senseboxes while red markers showing inactive senseboxes.
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/qgis_1.png" width="600"/>
-
-- **Step 2:** From toolbar, Goto `Raster > Extract > Clip Raster by Mask Layer `
-
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/qgis_2.png" width="600"/>
-
-- **Step 3:** Choose input layer as `interpolated_cropped.tif` and mask layer as `germany_simplified.shp`
-
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/qgis_3.png" width="600"/>
-
-- **Step 4:** At this step, you should have a new layer "Clipped (mask)". Right Click on it and choose `Properties > Symbology`. Choose the options as show in image below i.e. (Render Type and Invert Color Ramp)
-
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/qgis_4.png" width="600"/>
-
-- **Step 5:** You should have an output of something like this. Make sure you have turned off the other layers. Now you can right click on the layer name and export it as a `TIFF` image
-
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/qgis_5.png" width="600"/>
-
-### 3.4 Test your knowledge
-[Quiz - tbd]
-
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/output_map.png" width="500"/>
 
 ## 4. Wrap up
 [

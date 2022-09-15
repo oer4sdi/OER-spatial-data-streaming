@@ -8,6 +8,9 @@ WORKDIR /home
 ADD ./requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
 
+## Enable ipyleaflet extension 
+RUN jupyter nbextension enable --py --sys-prefix ipyleaflet
+
 # Clean up build scripts
 RUN rm -f ./requirements.txt
 
