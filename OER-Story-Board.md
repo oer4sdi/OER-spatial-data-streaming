@@ -274,7 +274,7 @@ Goto your browser and access the url that starts with `http://127.0.0.1:8888/?to
 
 You should now start downloading the data from `src/data_prep.ipynb` and then process this data using `src/event_processing.ipynb`
 
-*Run Kafka Producer*
+**Run Kafka Producer**
 
 After downloading the data, you can choose to run the kafka producer script within the notebook (explained in the notebook) or go to your jupyter homepage, select `Open > New Terminal` and enter the following command:
 
@@ -287,9 +287,9 @@ python src/sendStream.py data/sample_multilocation.csv
      <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/terminal.png" width="1000"/>
 </p>
 
-*Kafka Consumer & Analysis*
+**Kafka Consumer & Analysis**
 
-Now you can  open  to read the kafka stream, perform event detection and geo-plotting. The jupyter notebook will guide you through the next steps. The consumer output will also perform event detection in parallel with an ouput of something like this:
+Now you can  open `src/event_processing.ipynb` to read the kafka stream, perform event detection and geo-plotting. The jupyter notebook will guide you through the next steps. The consumer output will also perform event detection in parallel with an ouput of something like this:
 
 <p align="center">
      <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/kafka_output.png" width="1000"/>
