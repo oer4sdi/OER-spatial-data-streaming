@@ -48,7 +48,7 @@ The OER4SDI project has been recommended by the Digital University NRW and is fu
 
 ## 2. Background on IoT and analyzing PM2.5 data streams
 
-[What this chapter is about]
+[What this chapter is about; slides used for this section are currently being edited in [this google presentation](https://docs.google.com/presentation/d/1zVLVDlJOrx4CjgRgEAnmhJoenzpOstuTIROEeQoZ6U4/edit?usp=sharing)  ]
                               	
 ### 2.1 IoT and Sensor Things
 
