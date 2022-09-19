@@ -236,7 +236,7 @@ At this point, you should have all the three containers running: `zookeeper`, `k
 
 ### 3.2 Preparing the PM2.5 data stream
 
-The data downloading/pre-processing can be done in an automated way using the `src/data_prep.ipynb` jupyter notebook. The data is fetched from the `Opensensemap API` available [here](https://docs.opensensemap.org/). The notebook also supports dynamic map elements using the `ipyleaflet` extension for interactive learning. 
+The data downloading/pre-processing can be done in an automated way using the `src/step_1_data_prep.ipynb` jupyter notebook. The data is fetched from the `Opensensemap API` available [here](https://docs.opensensemap.org/). The notebook also supports dynamic map elements using the `ipyleaflet` extension for interactive learning. 
 
 <p align="center">
      <b>The map canvas will look something like this</b>
@@ -272,24 +272,20 @@ docker logs jupyter
 
 Goto your browser and access the url that starts with `http://127.0.0.1:8888/?token=` (`token` should be available in the previous command output)
 
-You should now start downloading the data from `src/data_prep.ipynb` and then process this data using `src/event_processing.ipynb`
+You should now start downloading the data from `src/step_1_data_prep.ipynb` and then process this data using `src/step_3_event_processing.ipynb`
 
 **Run Kafka Producer**
 
-After downloading the data, you can choose to run the kafka producer script within the notebook (explained in the notebook) or go to your jupyter homepage, select `Open > New Terminal` and enter the following command:
-
-```
-python src/sendStream.py data/sample_multilocation.csv
-```
+After downloading the data, you can choose to run the kafka producer jupyter notebook from `src/step_2_producer.ipynb`
 
 <p align="center">
-     <b>The output on your jupyter terminal should look like this</b>
+     <b>The output on your jupyter notebook should look like this</b>
      <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/terminal.png" width="1000"/>
 </p>
 
 **Kafka Consumer & Analysis**
 
-Now you can  open `src/event_processing.ipynb` to read the kafka stream, perform event detection and geo-plotting. The jupyter notebook will guide you through the next steps. The consumer output will also perform event detection in parallel with an ouput of something like this:
+Now you can  open `src/step_3_event_processing.ipynb` to read the kafka stream, perform event detection and geo-plotting. The jupyter notebook will guide you through the next steps. The consumer output will also perform event detection in parallel with an ouput of something like this:
 
 <p align="center">
      <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/kafka_output.png" width="1000"/>
