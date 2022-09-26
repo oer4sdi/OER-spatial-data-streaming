@@ -1,50 +1,31 @@
 # OER on analyzing IoT air quality data streams using Kafka and Jupyter Notebooks  (work in progress!)        
-Storyboard
-[In square brackets: suggested content and related comments]
-
-
-
-## Table of Content
-1. Overview	
-2. Background on IoT and analyzing PM2.5 data streams  
-     2.1 IoT and Sensor Things  
-     2.2 Analyzing near real-time data streams  
-     2.3 Stream processing with Apache Kafka  
-     2.4 Air Quality and PM2.5  
-     2.5 Test your knowledge  
-3. Tutorial on Analyzing PM2.5 data streams with Jupyter Notebooks  
-     3.1 Installing the SW environment  
-     3.2 Preparing the PM2.5 data stream  
-     3.3 Preparing the PM2.5 monitor  
-     3.4 Test your knowledge  
-4. Wrap up
-
 
 
          	           	
 ## 1. Overview
 
-In this course, you’ll learn how to use Kafka and Jupyter Notebooks (Python) to access and analyze data streams coming from IoT devices that provide air quality data (e.g. PM2.5 sensor data). 
+In this OER module you will learn how to use Kafka and Jupyter notebooks to process and analyse streams of sensor data (particulate matter, PM2.5). After this course you will now how to
 
-You will
-* use docker to install Kafka, Jupyter and a Python notebook on your local computer
-* use PM2.5 sensor data from the Open Sensemap project 
-* use Jupyter notebooks to run Python scripts for simulating IoT data streams and for analyzing those data
+* use Docker to install and run Apache Kafka and Jupyter Notebooks on your local computer
+* use Python to access and download PM2.5 sensor data from the Open Sensemap project
+* simulate a PM2.5 sensor data stream that runs against Kafka and how to analyze that data stream for monitoring air quality
 
-In Chapter 2 we’ll provide you with background on the Internet of Things (IoT), processing of data streams and on Particulate Matter (PM2.5). 
-If you are mainly interested in the technical aspects, you can jump directly to chapter 3, where we guide you through the installation and use of Kafka and Jupyter notebooks to manage and process PM2.5 data streams.
+The module is structured as follows
 
-With the help of some self-tests, you can check whether you have understood the essential concepts and technologies.  
+1. Overview
+2. Background on IoT, sensor data streams and the air quality parameter particulate matter (PM2.5)
+2. Installing and using Apache Kafka and Jupyter Notebooks for analyzing PM2.5 data streams
+4. Wrap up
 
-We designed the course to be used by students and professionals who want to improve their skills in developing applications for near-real-time data. You should have some basic knowledge of Python and it wouldn't be bad if you already have some experience with Docker and Jupyter notebooks too. But don't worry, we will guide you through all those technologies and you can also use the tutorial to get your first hands-on experience with it. 
+If you are mainly interested in the technical aspects, you can jump directly to chapter 3 where we guide you through the technical exercise. With the help of some self-tests you can check if you have understood the essential concepts and technologies.
+
+This tutorial is designed for students and professionals who want to spend about 90 minutes on improving their skills in developing applications based on real-time data. You should have some basic knowledge of Python and it wouldn't be bad if you already have some experience with Docker and Jupyter notebooks too. But don't worry, we will guide you through all those technologies and you can also use the tutorial to get your first hands-on experience with it.
 
 This Tutorial has been developed at the Institute for Geoinformatics, University of Münster. Authors are Jaskaran Puri (main idea, technical tutorial) with contributions from Sandhya Rajendran, Thomas Kujawa and Albert Remke.
 
-You are free to use, alter and reproduce the tutorial (H5P content) under the terms of the CC-BY-SA 4.0 license. The source code can be used under the terms of the MIT license [link]. 
+You are free to use, alter and reproduce the tutorial (H5P content) under the terms of the CC-BY-SA 4.0 license. The Jupyter notebook can be used under the terms of the MIT license. Please see the [full license terms]
 
 The OER4SDI project has been recommended by the Digital University NRW and is funded by the Ministry of Culture and Science NRW. 
- 
-[@Thomas: see MKW funding notice for obligations on how to reference the funding authorities (text, logo)]
 
 ## 2. Background on IoT and analyzing PM2.5 data streams
 
