@@ -90,7 +90,16 @@ PM25 official thresholds
 
 ## Chapter 3: Tutorial on Analyzing PM2.5 data streams with Jupyter Notebooks
 
-In this chapter we will start with our implementation of the application from setting up the software environment to performing analytics with the data streams. Before we begin, there are few technical details you should be aware of to fully understand the functioning of this app.
+This section introduces the tutorial series to implement kafka for streaming spatial data in real-time using docker and jupyter notebook. It is important to note that this is a mock setup of a real-world scenario. The data itself and pulling mechanism is  real-world and real-time, however, the component of streaming data using a jupyter notebook is an artificial setup with the aim to show how real-world data is transmitted and consumed in reality and how can we perform analytical functions over it. 
+
+The tutorial is completed using three jupyter notebooks, to be executed in the order of their names (step_1, step_2, step_3). All the jupyter notebooks will run in a docker environment to enable dependency-free learning using the latest technologies.
+
+In this chapter we will start with our implementation of the application from setting up the software environment to performing analytics with the data streams. Before we begin, there are few technical details you should be aware of to fully understand the functioning of this app. Here's an overall architecture of what the final flow of the app would look like.
+
+<p align="center">
+    <b>Here's one of the many possible designs (You can save it and zoom-in to view the captions)</b>
+     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/archi.png" width="1000"/>
+</p>
 
 The application itself isn't built using one specific programming language but is a result of multiple tools that are commonly used in while developing microservice architecture in cloud environments.
 
@@ -119,10 +128,10 @@ Every time you execute a Docker Image, it gets converted one docker container, w
 
      - **Broker:** This component acts as the bridge between producer and consumer. You can think of this as a storage space for Kafka, messages are stored by this component, waiting to be consumed by a consumer component
 
-Here's a simple architecture of a Kafka system [[Source](http://cloudurable.com/blog/kafka-architecture/index.html)]
-
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/kafka_archi.png" width="500">
-
+<p align="center">
+     Here's a simple architecture of a Kafka system [[Source](http://cloudurable.com/blog/kafka-architecture/index.html)]
+     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/kafka_archi.png" width="500">
+</p>
 
 A real-world replica of this model would be your mail/letterbox:
 
@@ -133,7 +142,6 @@ A real-world replica of this model would be your mail/letterbox:
 **Your Address:** This is your topic, how does the post-man know where to send this data?
 
 **You:** You are the consumer, it’s your responsibility to collect this data and process it further
-
 
 - **Zookeeper:** Recently, zookeeper became an optional component but was the backbone for Kafka clusters for quite a few years. Zookeeper acts like a host on top of which Kafka brokers used to communicate, store metadata like topic names, ids etc. This component would know what servers are acting as brokers and spawns a new broker or leader in case one of the broker server fails. This component is more relevant in distributed systems where multiple servers are running in parallel.
 
@@ -185,6 +193,10 @@ Executable file can be downloaded from [https://docs.docker.com/desktop/install/
 
 `(It is recommended to have at least 8GB RAM to support smooth functioning of Docker on Windows)`
 
+*Mac*
+
+Mac users can access the link [here](https://docs.docker.com/desktop/install/mac-install/) to download the relevant mac applications for their systems.
+
 **Starting The Application**
 
 Please ensure `docker` is up and running in background and open a relevant `Terminal/Command Prompt` in your OS.
@@ -235,12 +247,13 @@ In the notebook, you will be required to peform few tasks to complete the data d
 
 ### 3.3 Processing the PM2.5 data stream
 
-Before developing an application it is always recommended to draw an architecture diagram to understand how different components would interact with each other, what would be the data flow etc. There's no one right architecture as it is possible to design and place the same components in several different ways. What do you think would be good architecture for our application?
+In this section you'll learn how to execute the jupyter notebooks and the function of each notebook. Here's a short summary of what each notebook does:
 
-<p align="center">
-    <b>Here's one of the many possible designs (You can save it and zoom-in to view the captions)</b>
-     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/archi.png" width="1000"/>
-</p>
+> `src/step_1_data_prep.ipynb`: In this notebook you'll perform various tasks like code completion and map interactions. You'll then be able to pull live data from the Opensensemap APIs in real-time and store it locally
+
+> `src/step_2_producer.ipynb`: This notebook represents a function that usually takes place within an IoT sensor like uploading/streaming of data to cloud. You'll be able to stream data in a kafka environment, however, just on your local PC where your own system acts like a cloud server
+
+> `src/step_3_event_processing.ipynb`: Finally, the streamed data is retained in your docker's memory as it is waiting to be consumed by a `kafka consumer`. In this notebook you'll be able to pull this data and perform event detection and visualization for the same.
 
 **Event Detection & Sensor Locator**
 
@@ -257,25 +270,18 @@ You should now start downloading the data from `src/step_1_data_prep.ipynb` and 
 
 **Run Kafka Producer**
 
-After downloading the data, you can choose to run the kafka producer jupyter notebook from `src/step_2_producer.ipynb`
-
-<p align="center">
-     <b>The output on your jupyter notebook should look like this</b>
-     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/terminal.png" width="1000"/>
-</p>
+After downloading the data, you can choose to run the kafka producer jupyter notebook from `src/step_2_producer.ipynb`. 
+On successfull run, you should see an output of messages confirming the transmission of data points.
 
 **Kafka Consumer & Analysis**
 
-Now you can  open `src/step_3_event_processing.ipynb` to read the kafka stream, perform event detection and geo-plotting. The jupyter notebook will guide you through the next steps. The consumer output will also perform event detection in parallel with an ouput of something like this:
+Now you can  open `src/step_3_event_processing.ipynb` to read the kafka stream, perform event detection and geo-plotting. The jupyter notebook will guide you through the next steps. 
 
-<p align="center">
-     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/kafka_output.png" width="1000"/>
-</p>
+On successfull run, you should see an output map canvas showing locations of different senseboxes in your jupyter notebook
 
-Use `CTRL + C` or `docker-compse down` to exit the docker environment. 
-Next time when you want to run the environment, you can just use `docker compose up -d`
+### 3.4 Shut down and clean up
 
-**Shut down and clean up**
+Use `CTRL + C` or `docker-compse down` to exit the docker environment. Next time when you want to run the environment, you can just use `docker compose up -d`
 
 Stop the consumer with Return and Ctrl+C.
 
@@ -284,14 +290,6 @@ Shutdown Kafka broker system:
 ```
 docker compose down
 ```
-
-### 3.4 Results
-
-Your output map should look like the following. Green markers showing active senseboxes while red markers showing inactive senseboxes.
-
-<p align="center">
-     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/output_map.png" width="1000"/>
-</p>
 
 ## 4. Wrap up
 [
