@@ -29,57 +29,24 @@ The OER4SDI project has been recommended by the Digital University NRW and is fu
 
 ## 2. Background on IoT and analyzing PM2.5 data streams
 
-[What this chapter is about; slides used for this section are currently being edited in [this google presentation](https://docs.google.com/presentation/d/1zVLVDlJOrx4CjgRgEAnmhJoenzpOstuTIROEeQoZ6U4/edit?usp=sharing)  ]
-                              	
-### 2.1 IoT and Sensor Things
+### 2.1 read and learn...
 
-[
-Contect/objective: understanding the concepts: IoT, Sensors
-Content
-About IoT (vision, brief definition, Internet of Things, WebOfThings, Geospatial WebOfThings
-Nature and capabilities of Things (physical/virtual, identity, sensing, processing, acting, communication, ..)
-Sensor things (specifics)
-Communication with sensor things (connectivity, pattern: pull/push, streaming)
-Typical IoT sensor network architectures (sensors, platforms)
-Real-world applications
-Example in more detail: open SenseBox and OpenSenseMap
-]
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_00_Overview.svg" width="500">
 
-### 2.2 Analyzing near real-time data streams
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_01_InternetOfThings.svg" width="500">
 
-[
-Context/objective: Understanding the notion of stream processing
-content
-stream processing: definition, characteristics, basis for near real-time applications
-Use cases:
-monitoring the current state
-detecting events
-forecasting, ..
-Selected use case in detail
-Monitoring air quality
-processes: data access, data preparation, event detection, presentation
-challenges: data quality, outages, trust, ..
-]  
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_02_SensorThings.svg" width="500">
 
-              	
-### 2.3 Stream processing with Apache Kafka
-[
-context/objective: Understanding, how Apache Kafka supports stream processing
-content 
-Overview on the functionality (ETL aspects): data access, filtering, storing, data provision
-Overview on the logical compnents: producer, broker, topics, comsumer..
-]
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_03_ProcessingSensorDataStreams.svg" width="500">
 
-### 2.4 Air Quality and PM2.5
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_04_NRT_Applications.svg" width="500">
 
-[
-Context and relevance of air quality
-Particular matter(definition, health risks)
-PM25 (definition, official air quality thresholds)
-How to measure PM25 (sensors, sensor placements)
-]
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_05_ApacheKafka.svg" width="500">
 
-### 2.5 Test your knowledge
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_06_OpenSenseMap.svg" width="500">
+
+
+### 2.2 Test your knowledge
 [
 Quiz
 Expected advantages of the IoT
