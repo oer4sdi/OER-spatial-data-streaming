@@ -29,6 +29,8 @@ The OER4SDI project has been recommended by the Digital University NRW and is fu
 
 ## 2. Background on IoT and analyzing PM2.5 data streams
 
+With the following slides we provide you with some context and background on processing streams of PM2.5 sensor data. 
+
 ### 2.1 read and learn...
 
 <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_00_Overview.svg" width="500">
