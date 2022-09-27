@@ -61,7 +61,15 @@ PM25 official thresholds
 
 This section introduces the tutorial series to implement kafka for streaming spatial data in real-time using docker and jupyter notebook. It is important to note that this is a mock setup of a real-world scenario. The data itself and pulling mechanism is  real-world and real-time, however, the component of streaming data using a jupyter notebook is an artificial setup with the aim to show how real-world data is transmitted and consumed in reality and how can we perform analytical functions over it. 
 
-The tutorial is completed using three jupyter notebooks, to be executed in the order of their names (step_1, step_2, step_3). All the jupyter notebooks will run in a docker environment to enable dependency-free learning using the latest technologies.
+The tutorial is completed using three jupyter notebooks, in the order explained below:
+
+> `src/step_1_data_prep.ipynb`: In this notebook you'll perform various tasks like code completion and map interactions. You'll then be able to pull live data from the Opensensemap APIs in real-time and store it locally
+
+> `src/step_2_producer.ipynb`: This notebook represents a function that usually takes place within an IoT sensor like uploading/streaming of data to cloud. You'll be able to stream data in a kafka environment, however, just on your local PC where your own system acts like a cloud server
+
+> `src/step_3_event_processing.ipynb`: Finally, the streamed data is retained in your docker's memory as it is waiting to be consumed by a `kafka consumer`. In this notebook you'll be able to pull this data and perform event detection and visualization for the same.
+
+All the jupyter notebooks will run in a docker environment to enable dependency-free learning using the latest technologies.
 
 In this chapter we will start with our implementation of the application from setting up the software environment to performing analytics with the data streams. Before we begin, there are few technical details you should be aware of to fully understand the functioning of this app. Here's an overall architecture of what the final flow of the app would look like.
 
@@ -71,8 +79,6 @@ In this chapter we will start with our implementation of the application from se
 </p>
 
 The application itself isn't built using one specific programming language but is a result of multiple tools that are commonly used in while developing microservice architecture in cloud environments.
-
-Let's begin with what is a microservice architecture. In short, when independent tools are able to communicate with each other through APIs to make a single application function, we can label it as a microservice app. The major advantage here is of the independent nature of the multiple tools that allow additional control over each of the components, better fault-tolerance and improved scalability.
 
 Coming back to our application which includes the following components:
 
@@ -102,16 +108,6 @@ Every time you execute a Docker Image, it gets converted one docker container, w
      <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/kafka_archi.png" width="500">
 </p>
 
-A real-world replica of this model would be your mail/letterbox:
-
-**Post-Man:** This guy is the producer, whose job is just to pick data and drop it in your mailbox
-
-**Mail/Letter Box:** This is your broker, the letters will keep piling up if no one comes to collect it
-
-**Your Address:** This is your topic, how does the post-man know where to send this data?
-
-**You:** You are the consumer, it’s your responsibility to collect this data and process it further
-
 - **Zookeeper:** Recently, zookeeper became an optional component but was the backbone for Kafka clusters for quite a few years. Zookeeper acts like a host on top of which Kafka brokers used to communicate, store metadata like topic names, ids etc. This component would know what servers are acting as brokers and spawns a new broker or leader in case one of the broker server fails. This component is more relevant in distributed systems where multiple servers are running in parallel.
 
 This course introduces you to setting up zookeeper in a docker environment to show a mock setup of distributed applications.
@@ -123,48 +119,13 @@ Now that we've gained some very basic knowledge about what each component does. 
 Installation
 -------------------
 
-Docker installation steps are available here: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
+To be able to run this application you need to setup `Docker` on your system as it provides you with a dependency free environment to work in. Docker installation steps are available here: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
 
-A summarized version can be followed below:
+The following operating systems are supported by Docker:
 
-*Ubuntu (Linux)*
-
-```
-sudo apt-get update
-
-sudo apt-get install \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
-    
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-  
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
-
-docker run hello-world
-
-```
-
-*Windows*
-
-Executable file can be downloaded from [https://docs.docker.com/desktop/install/windows-install/]
-
-`(It is recommended to have at least 8GB RAM to support smooth functioning of Docker on Windows)`
-
-*Mac*
-
-Mac users can access the link [here](https://docs.docker.com/desktop/install/mac-install/) to download the relevant mac applications for their systems.
+<li>Linux (All Variants)</li>
+<li>Windows `(It is recommended to have at least 8GB RAM to support smooth functioning of Docker on Windows)`</li>
+<li>Mac</li>
 
 **Starting The Application**
 
@@ -181,7 +142,7 @@ git clone https://github.com/oer4sdi/OER-spatial-data-streaming.git
 In your CMD/Terminal, enter this:
 
 ```
-cd spatial-streaming
+cd OER-spatial-data-streaming
 docker compose up --build -d
 ```
 
@@ -196,9 +157,9 @@ On successfull run, you should see a similar console output
 ```
 At this point, you should have all the three containers running: `zookeeper`, `kafka` and `jupyter`
 
-### 3.2 Preparing the PM2.5 data stream
+### 3.2 STEP - 1: Preparing the PM2.5 data stream
 
-The data downloading/pre-processing can be done in an automated way using the `src/step_1_data_prep.ipynb` jupyter notebook. The data is fetched from the `Opensensemap API` available [here](https://docs.opensensemap.org/). The notebook also supports dynamic map elements using the `ipyleaflet` extension for interactive learning. 
+The data downloading/pre-processing can be done in an automated way using the `src/step_1_data_prep.ipynb` jupyter notebook. The data is fetched from the `Opensensemap API` available [here](https://docs.opensensemap.org/).
 
 <p align="center">
      <b>The map canvas will look something like this</b>
@@ -212,21 +173,8 @@ sensebox_url = https://api.opensensemap.org/boxes
 sensebox_data_url = https://api.opensensemap.org/statistics/descriptive
 ```
 
-In the notebook, you will be required to peform few tasks to complete the data downloading process. 
+In the notebook, you will be required to peform few tasks to complete the data downloading process. You should first launch the jupyter notebook, this way we can work directly inside a docker environment.
 
-### 3.3 Processing the PM2.5 data stream
-
-In this section you'll learn how to execute the jupyter notebooks and the function of each notebook. Here's a short summary of what each notebook does:
-
-> `src/step_1_data_prep.ipynb`: In this notebook you'll perform various tasks like code completion and map interactions. You'll then be able to pull live data from the Opensensemap APIs in real-time and store it locally
-
-> `src/step_2_producer.ipynb`: This notebook represents a function that usually takes place within an IoT sensor like uploading/streaming of data to cloud. You'll be able to stream data in a kafka environment, however, just on your local PC where your own system acts like a cloud server
-
-> `src/step_3_event_processing.ipynb`: Finally, the streamed data is retained in your docker's memory as it is waiting to be consumed by a `kafka consumer`. In this notebook you'll be able to pull this data and perform event detection and visualization for the same.
-
-**Event Detection & Sensor Locator**
-
-You should first launch the jupyter notebook, this way we can work directly inside a docker environment
 To do this, open a new terminal/CMD window and enter the following command to get the URL of the hosted Jupyter Notebook
 
 ```
@@ -235,14 +183,14 @@ docker logs jupyter
 
 Goto your browser and access the url that starts with `http://127.0.0.1:8888/?token=` (`token` should be available in the previous command output)
 
-You should now start downloading the data from `src/step_1_data_prep.ipynb` and then process this data using `src/step_3_event_processing.ipynb`
+You should now start downloading the data from `src/step_1_data_prep.ipynb`
 
-**Run Kafka Producer**
+### 3.3 STEP - 2: Using Kafka Producer To Stream Data
 
 After downloading the data, you can choose to run the kafka producer jupyter notebook from `src/step_2_producer.ipynb`. 
 On successfull run, you should see an output of messages confirming the transmission of data points.
 
-**Kafka Consumer & Analysis**
+### 3.3 STEP - 2: Ingestion & Analysis On Streams of Data Using Kafka Consumer
 
 Now you can  open `src/step_3_event_processing.ipynb` to read the kafka stream, perform event detection and geo-plotting. The jupyter notebook will guide you through the next steps. 
 
