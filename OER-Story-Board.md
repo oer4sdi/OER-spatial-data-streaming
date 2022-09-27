@@ -127,6 +127,7 @@ The following operating systems are supported by Docker:
 <li>Windows `(It is recommended to have at least 8GB RAM to support smooth functioning of Docker on Windows)`</li>
 <li>Mac</li>
 
+
 **Starting The Application**
 
 Please ensure `docker` is up and running in background and open a relevant `Terminal/Command Prompt` in your OS.
@@ -157,7 +158,7 @@ On successfull run, you should see a similar console output
 ```
 At this point, you should have all the three containers running: `zookeeper`, `kafka` and `jupyter`
 
-### 3.2 STEP - 1: Preparing the PM2.5 data stream
+### 3.2 Preparing the PM2.5 data stream
 
 The data downloading/pre-processing can be done in an automated way using the `src/step_1_data_prep.ipynb` jupyter notebook. The data is fetched from the `Opensensemap API` available [here](https://docs.opensensemap.org/).
 
@@ -185,18 +186,18 @@ Goto your browser and access the url that starts with `http://127.0.0.1:8888/?to
 
 You should now start downloading the data from `src/step_1_data_prep.ipynb`
 
-### 3.3 STEP - 2: Using Kafka Producer To Stream Data
+### 3.3 Using Kafka Producer To Stream Data
 
 After downloading the data, you can choose to run the kafka producer jupyter notebook from `src/step_2_producer.ipynb`. 
 On successfull run, you should see an output of messages confirming the transmission of data points.
 
-### 3.3 STEP - 2: Ingestion & Analysis On Streams of Data Using Kafka Consumer
+### 3.4 Ingestion & Analysis On Streams of Data Using Kafka Consumer
 
 Now you can  open `src/step_3_event_processing.ipynb` to read the kafka stream, perform event detection and geo-plotting. The jupyter notebook will guide you through the next steps. 
 
 On successfull run, you should see an output map canvas showing locations of different senseboxes in your jupyter notebook
 
-### 3.4 Shut down and clean up
+### 3.5 Shut down and clean up
 
 Use `CTRL + C` or `docker-compse down` to exit the docker environment. Next time when you want to run the environment, you can just use `docker compose up -d`
 
