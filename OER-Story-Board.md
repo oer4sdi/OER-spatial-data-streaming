@@ -33,19 +33,19 @@ With the following slides we provide you with some context and background on pro
 
 ### 2.1 read and learn...
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_00_Overview.svg" width="500">
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_00_Overview.svg" width="1000">
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_01_InternetOfThings.svg" width="500">
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_01_InternetOfThings.svg" width="1000">
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_02_SensorThings.svg" width="500">
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_02_SensorThings.svg" width="1000">
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_03_ProcessingSensorDataStreams.svg" width="500">
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_03_ProcessingSensorDataStreams.svg" width="1000">
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_04_NRT_Applications.svg" width="500">
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_04_NRT_Applications.svg" width="!000">
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_05_ApacheKafka.svg" width="500">
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_05_ApacheKafka.svg" width="1000">
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_06_OpenSenseMap.svg" width="500">
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_06_OpenSenseMap.svg" width="1000">
 
 
 ### 2.2 Test your knowledge
