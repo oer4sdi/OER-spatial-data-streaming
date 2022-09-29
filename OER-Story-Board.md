@@ -221,19 +221,19 @@ This marks the end of the tutorial series on how to stream and process data usin
 
 By completing this series, you should've achived some understanding about:
 
-<li>The advantages of having access to any kind of data in real-time</li>
-<li>How real-time IoT sensors can be configured to stream data using Kafka</li>
-<li>How to perform analytics on a stream of data</li>
-
+- The advantages of having access to any kind of data in real-time
+- How real-time IoT sensors can be configured to stream data using Kafka
+- How to perform analytics on a stream of data
 
 **Interested In Learning More?**
 
 Check out the following links to enhance your learning about these topics:
 
-<li>IoT Messaging In Real-World: [https://mqtt.org/](https://mqtt.org/)</li>
-<li>Kafka + MQTT Github: [https://github.com/kaiwaehner/kafka-connect-iot-mqtt-connector-example](https://github.com/kaiwaehner/kafka-connect-iot-mqtt-connector-example)</li>
-<li>GeMesa - BigData for GIS Applications: [https://www.geomesa.org/assets/outreach/foss4g-2021-streaming-data.pdf](https://www.geomesa.org/assets/outreach/foss4g-2021-streaming-data.pdf)</li>
-<li>Video On Real-Time Geospatial Analytics: [https://www.youtube.com/watch?v=sa4RiH1RXEA&ab_channel=TheLinuxFoundation](https://www.youtube.com/watch?v=sa4RiH1RXEA&ab_channel=TheLinuxFoundation)</li>
+- IoT Messaging In Real-World: https://mqtt.org
+- Kafka + MQTT Github: https://github.com/kaiwaehner/kafka-connect-iot-mqtt-connector-example
+- GeMesa - BigData for GIS Applications: https://www.geomesa.org/assets/outreach/foss4g-2021-streaming-data.pdf
+- Video On Real-Time Geospatial Analytics: https://www.youtube.com/watch?v=sa4RiH1RXEA&ab_channel=TheLinuxFoundation
+
 
 [
 Invitation to contribute by providing FeedBack, info on how to do so..
