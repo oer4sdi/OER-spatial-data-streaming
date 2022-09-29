@@ -225,7 +225,9 @@ By completing this series, you should've achived some understanding about:
 <li>How real-time IoT sensors can be configured to stream data using Kafka</li>
 <li>How to perform analytics on a stream of data</li>
 
+
 **Interested In Learning More?**
+
 Check out the following links to enhance your learning about these topics:
 
 <li>IoT Messaging In Real-World: [https://mqtt.org/](https://mqtt.org/)</li>
