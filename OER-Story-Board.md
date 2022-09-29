@@ -219,7 +219,7 @@ This marks the end of the tutorial series on how to stream and process data usin
 
 - The data range used in the tutorial was older, however, in a real-world scenarios all the components would work as a single file and would not need to be triggered separately. The data pulled from API would trigger the producer at the same time. The consumer on other end would pull messages in regular intervals or in fact can also be kept in listening mode 24x7
 
-By completing this series, you should've achived some understanding about:
+By completing this series, you should've achieved some understanding about:
 
 - The advantages of having access to any kind of data in real-time
 - How real-time IoT sensors can be configured to stream data using Kafka
