@@ -35,7 +35,7 @@ Author
 
 ## Abstract
 
-In this OER module you will learn how to use Kafka and Jupyter notebooks to process and analyse streams of sensor data (particulate matter, PM2.5). After this  module/lesson you will now how to
+In this OER module you will learn how to use Kafka and Jupyter notebooks to process and analyse streams of sensor data (particulate matter, PM2.5). After this  lesson you will now how to
 
 * use Docker to install and run Apache Kafka and Jupyter Notebooks on your local computer
 * use Python to access and download PM2.5 sensor data from the Open Sensemap project
@@ -69,7 +69,7 @@ The OER4SDI project has been recommended by the Digital University NRW and is fu
 
 ## Type of Material
 
-* Tutorial
+* [Tutorial | Lesson]
 
 ## Keywords
 
