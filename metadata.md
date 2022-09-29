@@ -1,4 +1,4 @@
-This metadata will be used to publish the learning material via various OER platforms and portals.
+These OER metadata follow the [OER4SDI metadata model](https://github.com/oer4sdi/Metadata-Model), which is aligned with both the ORCA.NRW and the OER Commons metadata models.
 
 ## Title
 * OER on analyzing IoT air quality data streams using Kafka and Jupyter Notebooks
