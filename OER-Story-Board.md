@@ -75,7 +75,7 @@ In this chapter we will start with our implementation of the application from se
 
 <p align="center">
     <b>Here's one of the many possible designs (You can save it and zoom-in to view the captions)</b>
-     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/archi.png" width="1000"/>
+     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/archi_updated.png" width="1000"/>
 </p>
 
 The application itself isn't built using one specific programming language but is a result of multiple tools that are commonly used in while developing microservice architecture in cloud environments.
@@ -210,9 +210,30 @@ docker compose down
 ```
 
 ## 4. Wrap up
+
+This marks the end of the tutorial series on how to stream and process data using Kafka and Jupyter Notebooks. However, there are few points that should be highlighted
+
+- In our mock scenario all messages are send in a bulk stream (more or less); nevertheless we have the time-stamps of the real observations.
+
+- The consumer doesnt wait for messages but pulls data from the stream; this is different from what we  do with stream processors that may be triggered by incoming data within the Kafka environment.
+
+- The data range used in the tutorial was older, however, in a real-world scenarios all the components would work as a single file and would not need to be triggered separately. The data pulled from API would trigger the producer at the same time. The consumer on other end would pull messages in regular intervals or in fact can also be kept in listening mode 24x7
+
+By completing this series, you should've achived some understanding about:
+
+<li>The advantages of having access to any kind of data in real-time</li>
+<li>How real-time IoT sensors can be configured to stream data using Kafka</li>
+<li>How to perform analytics on a stream of data</li>
+
+**Interested In Learning More?**
+Check out the following links to enhance your learning about these topics:
+
+<li>IoT Messaging In Real-World: [https://mqtt.org/](https://mqtt.org/)</li>
+<li>Kafka + MQTT Github: [https://github.com/kaiwaehner/kafka-connect-iot-mqtt-connector-example](https://github.com/kaiwaehner/kafka-connect-iot-mqtt-connector-example)</li>
+<li>GeMesa - BigData for GIS Applications: [https://www.geomesa.org/assets/outreach/foss4g-2021-streaming-data.pdf](https://www.geomesa.org/assets/outreach/foss4g-2021-streaming-data.pdf)</li>
+<li>Video On Real-Time Geospatial Analytics: [https://www.youtube.com/watch?v=sa4RiH1RXEA&ab_channel=TheLinuxFoundation](https://www.youtube.com/watch?v=sa4RiH1RXEA&ab_channel=TheLinuxFoundation)</li>
+
 [
-Brief summary of the expected learning outcomes (2-3 sentences)
-Links to further OER that might be interesting to deepen the knowledge in certain fields
 Invitation to contribute by providing FeedBack, info on how to do so..
 Funding reference
 ]
