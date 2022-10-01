@@ -4,7 +4,7 @@
          	           	
 ## 1. Overview
 
-In this OER module you will learn how to use Kafka and Jupyter notebooks to process and analyse streams of sensor data (particulate matter, PM2.5). After this course you will now how to
+In this open educational resource (OER) you will learn how to use Kafka and Jupyter notebooks to process and analyse streams of sensor data (particulate matter, PM2.5). After you have completed this tutorial, you will know how to
 
 * use Docker to install and run Apache Kafka and Jupyter Notebooks on your local computer
 * use Python to access and download PM2.5 sensor data from the Open Sensemap project
@@ -14,7 +14,7 @@ The module is structured as follows
 
 1. Overview
 2. Background on IoT, sensor data streams and the air quality parameter particulate matter (PM2.5)
-2. Installing and using Apache Kafka and Jupyter Notebooks for analyzing PM2.5 data streams
+3. Installing and using Apache Kafka and Jupyter Notebooks for analyzing PM2.5 data streams
 4. Wrap up
 
 If you are mainly interested in the technical aspects, you can jump directly to chapter 3 where we guide you through the technical exercise. With the help of some self-tests you can check if you have understood the essential concepts and technologies.
@@ -23,7 +23,7 @@ This tutorial is designed for students and professionals who want to spend about
 
 This Tutorial has been developed at the Institute for Geoinformatics, University of Münster. Authors are Jaskaran Puri (main idea, technical tutorial) with contributions from Sandhya Rajendran, Thomas Kujawa and Albert Remke.
 
-You are free to use, alter and reproduce the tutorial (H5P content) under the terms of the CC-BY-SA 4.0 license. The Jupyter notebook can be used under the terms of the MIT license. Please see the [full license terms]
+You are free to use, alter and reproduce the tutorial (H5P content) under the terms of the CC-BY-SA 4.0 license. Any code provided with the tutorial can be used under the terms of the MIT license. Please see the [full license terms](https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/LICENSE.md).
 
 The OER4SDI project has been recommended by the Digital University NRW and is funded by the Ministry of Culture and Science NRW. 
 
@@ -57,9 +57,9 @@ processing workflow (what needs to be done)
 PM25 official thresholds
 ]
 
-## Chapter 3: Tutorial on Analyzing PM2.5 data streams with Jupyter Notebooks
+# 3. Installing and using Apache Kafka and Jupyter Notebooks for analyzing PM2.5 data streams
 
-This section introduces the tutorial series to implement kafka for streaming spatial data in real-time using docker and jupyter notebook. It is important to note that this is a mock setup of a real-world scenario. The data itself and pulling mechanism is  real-world and real-time, however, the component of streaming data using a jupyter notebook is an artificial setup with the aim to show how real-world data is transmitted and consumed in reality and how can we perform analytical functions over it. 
+This section guides you through the installation and use of docker, kafka and jupyter notebooks for analyzing PM 2.5 data streams in real-time. It is important to note that this is a mock setup of a real-world scenario. The data itself and pulling mechanism is real-world and real-time, however, the component of streaming data using a jupyter notebook is an artificial setup with the aim to show how real-world data is transmitted and consumed in reality and how can we perform analytical functions over it. 
 
 The tutorial is completed using three jupyter notebooks, in the order explained below:
 
