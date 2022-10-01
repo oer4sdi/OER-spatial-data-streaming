@@ -234,9 +234,7 @@ Check out the following links to enhance your learning about these topics:
 - GeMesa - BigData for GIS Applications: https://www.geomesa.org/assets/outreach/foss4g-2021-streaming-data.pdf
 - Video On Real-Time Geospatial Analytics: https://www.youtube.com/watch?v=sa4RiH1RXEA&ab_channel=TheLinuxFoundation
 
+**Your feedback is welcome!**
 
-[
-Invitation to contribute by providing FeedBack, info on how to do so..
-Funding reference
-]
+If you have identified shortcomings in this OER module or have ideas for improving the OER material, you are invited to add entries to the issue list in the [Github repository of this OER]( https://github.com/oer4sdi/OER-spatial-data-streaming).
 
