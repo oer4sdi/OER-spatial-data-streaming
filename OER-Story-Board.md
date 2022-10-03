@@ -101,16 +101,7 @@ To begin with, we will start by installing Docker. Please go to the official web
 
 #### Downloading the sources from GitHub
 
-Access the [GitHub-Repository](https://github.com/oer4sdi/OER-spatial-data-streaming) and use “code”+”download zip” to download all source that are needed to run this tutorial. 
-
-Unzip the file to a location you would like to use as a **Working Directory** for the data in this tutorial.
-
-
-#### Starting The containers 
-
-Please ensure `docker` is up and running in background and open a `Terminal/Command Prompt` in your OS.
-
-[Download](https://github.com/oer4sdi/OER-spatial-data-streaming/archive/refs/heads/main.zip) the zipfile for the code and unzip it in a desired location
+[Download](https://github.com/oer4sdi/OER-spatial-data-streaming/archive/refs/heads/main.zip) the zipfile for the code and unzip it in a location you want to use as a **Working Directory**.
 
 Advanced users can also clone it using `git` from [here](https://github.com/oer4sdi/OER-spatial-data-streaming) using the following command
 
@@ -118,10 +109,15 @@ Advanced users can also clone it using `git` from [here](https://github.com/oer4
 git clone https://github.com/oer4sdi/OER-spatial-data-streaming.git
 ```
 
-In your CMD/Terminal, enter this:
+
+#### Starting The containers 
+
+Please ensure `docker` is up and running in background and open a `CMD/Terminal` in your OS.
+
+At the command prompt, change to the Working Directory (e.g. "OER-spatial-data-streaming-main") and start up the docker containers:
 
 ```
-cd OER-spatial-data-streaming
+cd OER-spatial-data-streaming-main
 docker compose up --build -d
 ```
 
@@ -136,21 +132,43 @@ On successfull run, you should see a similar console output
 ```
 At this point, you should have all the three containers running: `zookeeper`, `kafka` and `jupyter`
 
-### 3.2 Preparing the PM2.5 data stream
+### 3.2 Downloading the PM 2.5 sample data set (Step-1)
+
+As a first step, we want to download PM 2.5 sensor data from the openSenseMap project and we will use our first Jupyter Notebook document to perform this task.
+
+As to get the URL of the Jupyter Notebook server, open a new `CMD/Terminal` window and enter the following command: 
+
+```
+docker logs jupyter
+```
+
+The output should look like this:
+[Jupyter_logsScreen]
+
+
+Goto your browser and access the URL that starts with `http://127.0.0.1:8888/?token=` (please take the `token` from the previous command output).
+
+You will see the UI of the Jupyter Notebook server which informs you about the files that are available and the documents that are currently running. Please open the folder “src” to see the three Notebook documents that are prepared for our exercise. 
+
+[Jupyter-UI]
+
+Please start the first Notebook document `src/step_1_data_prep.ipynb` and activate the sequence of cells of the document one by one. In the document, you will be required to perform a few tasks to complete the data downloading process.
+
+Please be aware:
+* Some of the code cells need some time to complete the computing, i.e., please wait for the output before you continue with the next cell. 
+* Each cell works with the current state of the system, which is a result of the code and data that has been activated before. I.e., the order in which you activate cells matters. If you are not sure about the state of the system, please re-initialize the system by re-starting the kernel (see buttons in the Jupyter Notebook UI).
+* If you change the notebook (and you are invited to experiment with the code), the changes will be persisted in your notebook. If you are not sure about how to fix problems that occurred with your changes you still have the possibility to fall back on downloading a fresh copy of the notebook document from the OER code repository [here](https://github.com/oer4sdi/OER-spatial-data-streaming).
+
+After having completed the Notebook document please come back and continue with the next chapter of this tutorial.
+
+
+
+
+
+>>>>>>>>>
 
 The data downloading/pre-processing can be done in an automated way using the `src/step_1_data_prep.ipynb` jupyter notebook. The data is fetched from the `Opensensemap API` available [here](https://docs.opensensemap.org/).
 
-<p align="center">
-     <b>The map canvas will look something like this</b>
-     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/map.png" width="1000"/>
-</p>
-
-The following endpoints from the API are used and should not be modified:
-
-```
-sensebox_url = https://api.opensensemap.org/boxes
-sensebox_data_url = https://api.opensensemap.org/statistics/descriptive
-```
 
 In the notebook, you will be required to peform few tasks to complete the data downloading process. You should first launch the jupyter notebook, this way we can work directly inside a docker environment.
 
