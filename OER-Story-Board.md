@@ -89,77 +89,19 @@ Please notice: In this exercise, we simplify a real-world scenario where many se
 
 
 
->>>>>
-The tutorial is completed using three jupyter notebooks, in the order explained below:
-
-> `src/step_1_data_prep.ipynb`: In this notebook you'll perform various tasks like code completion and map interactions. You'll then be able to pull live data from the Opensensemap APIs in real-time and store it locally
-
-> `src/step_2_producer.ipynb`: This notebook represents a function that usually takes place within an IoT sensor like uploading/streaming of data to cloud. You'll be able to stream data in a kafka environment, however, just on your local PC where your own system acts like a cloud server
-
-> `src/step_3_event_processing.ipynb`: Finally, the streamed data is retained in your docker's memory as it is waiting to be consumed by a `kafka consumer`. In this notebook you'll be able to pull this data and perform event detection and visualization for the same.
-
-All the jupyter notebooks will run in a docker environment to enable dependency-free learning using the latest technologies.
-
-In this chapter we will start with our implementation of the application from setting up the software environment to performing analytics with the data streams. Before we begin, there are few technical details you should be aware of to fully understand the functioning of this app. Here's an overall architecture of what the final flow of the app would look like.
-
-<p align="center">
-    <b>Here's one of the many possible designs (You can save it and zoom-in to view the captions)</b>
-     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/archi_updated.png" width="1000"/>
-</p>
-
-The application itself isn't built using one specific programming language but is a result of multiple tools that are commonly used in while developing microservice architecture in cloud environments.
-
-Coming back to our application which includes the following components:
-
-1. Docker
-2. Kafka
-3. Zookeeper
-4. Jupyter/Python Environment
-
-Here's a few more details about each of the components:
-
-- **Docker:** A very commonly used technology that allows running of applications irrespective of the host environment/dependencies. An application developed using tools that are only available in linux for example can be packaged into a, what we call as a **Docker Image** and then execute is image on any other system for example even Windows.
-
-Every time you execute a Docker Image, it gets converted one docker container, which means the application itself. In the case like ours where we have more than one independent components or Docker Images that we'll require, it is recommended to use what we call as a **docker-compose** tool. Using this you can define multiple docker images in a single file and also configure how they communicate with each other.
-
-- **Kafka:** Officially known as Apache Kafka, in simpler terms is a messaging system. Kafka is mostly useful for applications where there is a need to ingest huge amount of incoming data with millisecond latency. Kafka is conceptually based on a publish-subscribe architecture where one system is responsible to publish message to a virtual "broker" while some systems are responsible for consuming the messages, also known as consumers because they subscribe to the broker. Here are the components that you should be aware of:
-
-     - **Producer:** The component responsible to send a message to the Kafka cluster under a certain topic
-
-     - **Consumer:** The component responsible to receive message from the Kafka cluster. A consumer would subscribe to a certain topic and receive messages for this topic only
-
-     - **Topic:** Any message that is produced will always be tagged with a specific topic or a keyword. Technically, topics help in scaling the Kafka system, however, in our application a topic can be seen as a way to organise messages. This can be named anything.
-
-     - **Broker:** This component acts as the bridge between producer and consumer. You can think of this as a storage space for Kafka, messages are stored by this component, waiting to be consumed by a consumer component
-
-<p align="center">
-     Here's a simple architecture of a Kafka system [[Source](http://cloudurable.com/blog/kafka-architecture/index.html)]
-     <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/kafka_archi.png" width="500">
-</p>
-
-- **Zookeeper:** Recently, zookeeper became an optional component but was the backbone for Kafka clusters for quite a few years. Zookeeper acts like a host on top of which Kafka brokers used to communicate, store metadata like topic names, ids etc. This component would know what servers are acting as brokers and spawns a new broker or leader in case one of the broker server fails. This component is more relevant in distributed systems where multiple servers are running in parallel.
-
-This course introduces you to setting up zookeeper in a docker environment to show a mock setup of distributed applications.
 
 ### 3.1 Installing the SW environment
 
-Now that we've gained some very basic knowledge about what each component does. Let's begin by setting up the software environment. To begin with, we will start by installing **Docker**
-
-Installation
--------------------
-
-To be able to run this application you need to setup `Docker` on your system as it provides you with a dependency free environment to work in. Docker installation steps are available here: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
-
-The following operating systems are supported by Docker:
-
-<li>Linux (All Variants)</li>
-<li>Windows `(It is recommended to have at least 8GB RAM to support smooth functioning of Docker on Windows)`</li>
-<li>Mac</li>
+Now that we've gained some understanding of the workflow and the technologies involved, let's set up the software environment. 
 
 
-**Starting The Application**
+#### Installing Docker
 
-Please ensure `docker` is up and running in background and open a relevant `Terminal/Command Prompt` in your OS.
+To begin with, we will start by installing Docker. Please go to the official web site [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/) and follow the guidance which is provided there to install docker on your local computer (Linux, Windows or Mac). It is recommended to have at least 8GB RAM to support smooth functioning of Docker.
+
+#### Starting The containers 
+
+Please ensure `docker` is up and running in background and open a `Terminal/Command Prompt` in your OS.
 
 [Download](https://github.com/oer4sdi/OER-spatial-data-streaming/archive/refs/heads/main.zip) the zipfile for the code and unzip it in a desired location
 
