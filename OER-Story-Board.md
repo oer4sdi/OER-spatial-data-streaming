@@ -65,13 +65,25 @@ This section guides you through the installation and use of Docker, Kafka and Ju
 
 Software components used in this tutorial
 
-* Docker allows us to package all needed software components as Docker Images and execute those images as Docker Containers in the Docker Environment, e.g. on Linux, Windows or Mac. With the docker-compose tool we can define multiple docker images and configure how they communicate with each other.
+* **Docker** allows us to package all needed software components as Docker Images and execute those images as Docker Containers in the Docker Environment, e.g. on Linux, Windows or Mac. With the docker-compose tool we can define multiple docker images and configure how they communicate with each other.
 
-* Apache Kafka is a messaging system. Kafka is used for applications which need to ingest, process and disseminate huge amounts of incoming data with millisecond latency. Kafka is conceptually based on a publish-subscribe architecture where one type of systems (Producers) publish topic-related messages at a virtual Broker and other types of systems (Consumers) subscribe to those topics, filter, access and use those messages for real-time applications. The Topics are useful to structure the data streams and to support scaling of the Kafka system. The broker acts as the bridge between producers and consumers. The broker also acts as message store, where messages can wait to be consumed by a consumer app.
+* **Apache Kafka** is a messaging system. Kafka is used for applications which need to ingest, process and disseminate huge amounts of incoming data with millisecond latency. Kafka is conceptually based on a publish-subscribe architecture where one type of systems (**Producers**) publish topic-related messages at a virtual **Broker** and other types of systems (**Consumers**) subscribe to those topics, filter, access and use those messages for real-time applications. The Topics are useful to structure the data streams and to support scaling of the Kafka system. The broker acts as the bridge between producers and consumers. The broker also acts as message store, where messages can wait to be consumed by a consumer app.
 
-* Recently, Zookeeper became an optional component, but for some years it was the backbone for Kafka clusters. Zookeeper is used to coordinate clusters of Kafka brokers. For example, Zookeeper "knows" which servers act as brokers and creates a new broker if one of the brokers fails.
+* Recently, **Zookeeper** became an optional component, but for some years it was the backbone for Kafka clusters. Zookeeper is used to coordinate clusters of Kafka brokers. For example, Zookeeper "knows" which servers act as brokers and creates a new broker if one of the brokers fails.
 
-* Jupyter Notebook is an interactive web-based environment for creating and using Notebook documents. It implements the reed-eval-print-loop (REPL), i.e., each document can have a sequence of input/output cells which may contain multimedia content or executable code (Python, R, Julia). Once the user activates a code cell, the print-output of the code will be inserted into the document. This supports both, describing a method or workflow, which involves code and direct interaction with the code as to learn and understand, how the code works. Following a common practice, our Notebook Documents have the extension ".ipynb".
+* **Jupyter Notebook** is an interactive web-based environment for creating and using Notebook documents. It implements the reed-eval-print-loop (REPL), i.e., each document can have a sequence of input/output cells which may contain multimedia content or executable code (Python, R, Julia). Once the user activates a code cell, the print-output of the code will be inserted into the document. This supports both, describing a method or workflow, which involves code and direct interaction with the code as to learn and understand, how the code works. Following a common practice, our Notebook Documents have the extension ".ipynb".
+
+We use docker to build and run three containers: 
+
+* The **Jupyter container** runs the Jupyter Notebook server. We’ll use three Jupyter Notebooks to implement and explain the software that is needed to support Step-1, Step-2 and Step-3 of our technical exercise.
+
+* The **Kafka Container** runs the Kafka Broker, that receives the sensor data, stores them in a temporal data store and provides access to the data for consumer apps. 
+
+* The third container runs **zookeeper**, that coordinates the Kafka cluster.
+
+In our exercise, we will first download PM 2.5 sensor data from the openSenseMap project (Step-1). In a second step we will use this sample data to create a sensor data stream that is sent to a Kafka broker by a producer app (Step-2). Finally, we will show, how to analyze and visualize the PM 2.5 data by a consumer app (Step-3). 
+
+Please notice: In this exercise, we simplify a real-world scenario where many sensors (producer apps) would continuously send their data to the broker. Many consumer apps would sign up for topics of their interest, access the corresponding data in either push or pull mode and process the data in near real-time.
 
 
 
