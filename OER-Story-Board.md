@@ -58,14 +58,12 @@ processing workflow (what needs to be done)
 PM25 official thresholds
 ]
 
+
+
 # 3. Installing and using Apache Kafka and Jupyter Notebooks for analyzing PM 2.5 data streams
 
 This section guides you through the installation and use of Docker, Kafka and Jupyter Notebooks for analyzing PM 2.5 data streams. 
-
-[Architecture diagram]
-
 <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/ARE_RevisedStoryBoard/img/OER_Streaming_Architecture.svg" width="1000">
-
 Software components used in this tutorial
 
 * **Docker** allows us to package all needed software components as Docker Images and execute those images as Docker Containers in the Docker Environment, e.g. on Linux, Windows or Mac. With the docker-compose tool we can define multiple docker images and configure how they communicate with each other.
