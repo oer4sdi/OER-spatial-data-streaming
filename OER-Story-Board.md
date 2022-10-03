@@ -57,10 +57,27 @@ processing workflow (what needs to be done)
 PM25 official thresholds
 ]
 
-# 3. Installing and using Apache Kafka and Jupyter Notebooks for analyzing PM2.5 data streams
+# 3. Installing and using Apache Kafka and Jupyter Notebooks for analyzing PM 2.5 data streams
 
-This section guides you through the installation and use of docker, kafka and jupyter notebooks for analyzing PM 2.5 data streams in real-time. It is important to note that this is a mock setup of a real-world scenario. The data itself and pulling mechanism is real-world and real-time, however, the component of streaming data using a jupyter notebook is an artificial setup with the aim to show how real-world data is transmitted and consumed in reality and how can we perform analytical functions over it. 
+This section guides you through the installation and use of Docker, Kafka and Jupyter Notebooks for analyzing PM 2.5 data streams. 
 
+[Architecture diagram]
+
+Software components used in this tutorial
+
+* Docker allows us to package all needed software components as Docker Images and execute those images as Docker Containers in the Docker Environment, e.g. on Linux, Windows or Mac. With the docker-compose tool we can define multiple docker images and configure how they communicate with each other.
+
+* Apache Kafka is a messaging system. Kafka is used for applications which need to ingest, process and disseminate huge amounts of incoming data with millisecond latency. Kafka is conceptually based on a publish-subscribe architecture where one type of systems (Producers) publish topic-related messages at a virtual Broker and other types of systems (Consumers) subscribe to those topics, filter, access and use those messages for real-time applications. The Topics are useful to structure the data streams and to support scaling of the Kafka system. The broker acts as the bridge between producers and consumers. The broker also acts as message store, where messages can wait to be consumed by a consumer app.
+
+* Recently, Zookeeper became an optional component, but for some years it was the backbone for Kafka clusters. Zookeeper is used to coordinate clusters of Kafka brokers. For example, Zookeeper "knows" which servers act as brokers and creates a new broker if one of the brokers fails.
+
+* Jupyter Notebook is an interactive web-based environment for creating and using Notebook documents. It implements the reed-eval-print-loop (REPL), i.e., each document can have a sequence of input/output cells which may contain multimedia content or executable code (Python, R, Julia). Once the user activates a code cell, the print-output of the code will be inserted into the document. This supports both, describing a method or workflow, which involves code and direct interaction with the code as to learn and understand, how the code works. Following a common practice, our Notebook Documents have the extension ".ipynb".
+
+
+
+
+
+>>>>>
 The tutorial is completed using three jupyter notebooks, in the order explained below:
 
 > `src/step_1_data_prep.ipynb`: In this notebook you'll perform various tasks like code completion and map interactions. You'll then be able to pull live data from the Opensensemap APIs in real-time and store it locally
