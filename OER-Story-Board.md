@@ -119,7 +119,7 @@ cd OER-spatial-data-streaming-main
 docker compose up --build -d
 ```
 
-On successfull run, you should see a similar console output
+After successful execution you should see a similar console output:
 
 ```
 [+] Running 4/4
@@ -141,13 +141,13 @@ docker logs jupyter
 ```
 
 The output should look like this:
-[Jupyter_logsScreen]
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/ARE_RevisedStoryBoard/img/Jupyter_CMD_1.svg" width="1000">
 
 Goto your browser and access the URL that starts with `http://127.0.0.1:8888/?token=` (please take the `token` from the previous command output).
 
 You will see the UI of the Jupyter Notebook server which informs you about the files that are available and the documents that are currently running. Please open the folder “src” to see the three Notebook documents that are prepared for our exercise. 
 
-[Jupyter-UI]
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/ARE_RevisedStoryBoard/img/Jupyter_Notebook_UI.svg" width="1000">
 
 Please start the first Notebook document `src/step_1_data_prep.ipynb` and activate the sequence of cells of the document one by one. In the document, you will be required to perform a few tasks to complete the data downloading process.
 
