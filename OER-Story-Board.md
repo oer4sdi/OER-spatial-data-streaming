@@ -90,7 +90,7 @@ Please notice: In this exercise, we simplify a real-world scenario where many se
 
 ### 3.1 Installing the SW environment
 
-Now that we've gained some understanding of the workflow and the technologies involved, let's set up the software environment. 
+Now that we've gained a basic understanding of the workflow and the technologies involved, let's set up the software environment. 
 
 
 #### A) Install Docker
@@ -99,7 +99,7 @@ Please go to the official web site [https://docs.docker.com/get-docker/](https:/
 
 #### B) Download the sources from GitHub
 
-[Download](https://github.com/oer4sdi/OER-spatial-data-streaming/archive/refs/heads/main.zip) the zipfile for the code and unzip it in a location you want to use as a **WorkingDirectory**.
+[Download](https://github.com/oer4sdi/OER-spatial-data-streaming/archive/refs/heads/main.zip) the zipfile for the code and unzip it in a location that you want to use as a **WorkingDirectory**.
 
 Advanced users can also clone it using `git` from [here](https://github.com/oer4sdi/OER-spatial-data-streaming) using the following command
 
