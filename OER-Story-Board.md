@@ -95,11 +95,11 @@ Please notice: In this exercise, we simplify a real-world scenario where many se
 Now that we've gained some understanding of the workflow and the technologies involved, let's set up the software environment. 
 
 
-#### Installing Docker
+#### A) Installing Docker
 
 To begin with, we will start by installing Docker. Please go to the official web site [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/) and follow the guidance which is provided there to install docker on your local computer (Linux, Windows or Mac). It is recommended to have at least 8GB RAM to support smooth functioning of Docker.
 
-#### Downloading the sources from GitHub
+#### B) Downloading the sources from GitHub
 
 [Download](https://github.com/oer4sdi/OER-spatial-data-streaming/archive/refs/heads/main.zip) the zipfile for the code and unzip it in a location you want to use as a **Working Directory**.
 
@@ -110,7 +110,7 @@ git clone https://github.com/oer4sdi/OER-spatial-data-streaming.git
 ```
 
 
-#### Starting The containers 
+#### C) Starting The containers 
 
 Please ensure `docker` is up and running in background and open a `CMD/Terminal` in your OS.
 
@@ -134,7 +134,7 @@ At this point, you should have all the three containers running: `zookeeper`, `k
 
 ### 3.2 Downloading the PM 2.5 sample data set (Step-1)
 
-As a first step, we want to download PM 2.5 sensor data from the openSenseMap project and we will use our first Jupyter Notebook document to perform this task.
+As a first step, we want to download PM 2.5 sensor data from the [openSenseMap project](https://docs.opensensemap.org/) and we will use our first Jupyter Notebook document to perform this task.
 
 As to get the URL of the Jupyter Notebook server, open a new `CMD/Terminal` window and enter the following command: 
 
@@ -144,7 +144,6 @@ docker logs jupyter
 
 The output should look like this:
 [Jupyter_logsScreen]
-
 
 Goto your browser and access the URL that starts with `http://127.0.0.1:8888/?token=` (please take the `token` from the previous command output).
 
@@ -162,75 +161,59 @@ Please be aware:
 After having completed the Notebook document please come back and continue with the next chapter of this tutorial.
 
 
+### 3.3 Sending a PM 2.5 data stream to the Kafka Broker (Step-2)
+
+After we have downloaded the PM 2.5 sample data from openSenseMap we can now use the data from the resulting CSV file to produce a data stream that will be sent to the Kafka broker. 
+
+From the Jupyter Notebook UI in your browser: please start the second Notebook document `src/step_2_producer.ipynb` and follow the guidance there. 
+
+Once you have successfully activated the sequence of cells in the Notebook document, you should see an output of messages confirming the transmission of all PM 2.5 measurements form the CSV file. 
+
+After having completed the Notebook document, please come back and continue with the next chapter of this tutorial.
 
 
+### 3.4 Analysing and Visualizing PM 2.5 data streams (Step-3)
 
->>>>>>>>>
+Now the Kafka broker has received a number of messages with PM 2.5 sensor data. Each message contains the information on what has been measured when and where. All messages have been tagged to belong to the topic “pm25_stream”. The Kafka broker has stored the messages in a temporary message store. 
 
-The data downloading/pre-processing can be done in an automated way using the `src/step_1_data_prep.ipynb` jupyter notebook. The data is fetched from the `Opensensemap API` available [here](https://docs.opensensemap.org/).
+Our next Jupyter Notebook implements a Consumer app that connects to the Kafka server and subscribes to the topic “pm25_stream” to get access to the sensor data stream. The Consumer app will use the data for two purposes: 
+* to create a map that informes us about the location and current status of the PM 2.1 sensors 
+* to send alerts in the case of the event that a sensor observes PM 2.5 concentrations that exceed a certain threshold for more than three days in a row. 
 
+Now please open the third Notebook document `src/step_3_event_processing.ipynb`, read and activate the cells one-by-one. 
 
-In the notebook, you will be required to peform few tasks to complete the data downloading process. You should first launch the jupyter notebook, this way we can work directly inside a docker environment.
+After having completed the Notebook document, please come back and continue with the next chapter of this tutorial.
 
-To do this, open a new terminal/CMD window and enter the following command to get the URL of the hosted Jupyter Notebook
-
-```
-docker logs jupyter
-```
-
-Goto your browser and access the url that starts with `http://127.0.0.1:8888/?token=` (`token` should be available in the previous command output)
-
-You should now start downloading the data from `src/step_1_data_prep.ipynb`
-
-### 3.3 Using Kafka Producer To Stream Data
-
-After downloading the data, you can choose to run the kafka producer jupyter notebook from `src/step_2_producer.ipynb`. 
-On successfull run, you should see an output of messages confirming the transmission of data points.
-
-### 3.4 Ingestion & Analysis On Streams of Data Using Kafka Consumer
-
-Now you can  open `src/step_3_event_processing.ipynb` to read the kafka stream, perform event detection and geo-plotting. The jupyter notebook will guide you through the next steps. 
-
-On successfull run, you should see an output map canvas showing locations of different senseboxes in your jupyter notebook
 
 ### 3.5 Shut down and clean up
 
-Use `CTRL + C` or `docker-compse down` to exit the docker environment. Next time when you want to run the environment, you can just use `docker compose up -d`
+Now that we have used the Notebook documents to perform and understand all the tasks of our exercise we shut down and clean up our working environment.
 
-Stop the consumer with Return and Ctrl+C.
+In your terminal/CMD window that you used to build the docker images and start up the docker containers type `docker compose down` to shut down the docker containers. 
 
-Shutdown Kafka broker system:
+The docker images are still available in your docker environment. Next time when you want to run the environment, you can just use `docker compose up -d` to start up the containers again.
 
-```
-docker compose down
-```
+If you want to remove the images as well from your docker environment type Docker images to get a list of the available images. Then use `docker image rm [image id]` to remove the images that you want to delete. 
+
 
 ## 4. Wrap up
 
-This marks the end of the tutorial series on how to stream and process data using Kafka and Jupyter Notebooks. However, there are few points that should be highlighted
+Hey! You did a great job! You installed and applied a powerful software stack for processing sensor data, including Docker, Kafka, Zookeeper and Jupyter Notebook. You prepared a PM 2.5 sample dataset using these technologies, sent a sensor data stream to a Kafka broker, and then analysed and visualised it using a consumer app. 
+We hope that you now have an idea of how to work with spatial data streams, even though we have somewhat simplified the real applications in our exercise. For example: 
+* In our example scenario, all messages were sent in a single stream from a single producer; in the real world, these messages come continuously and from many producers at the same time. 
+* In our example, the consumer pulls the data from the stream in a batch mode; in near-real-time applications, the stream processors are often triggered by incoming data and are thus able to react to new information with the shortest possible delay.
+* In our exercise, we downloaded a historical dataset (January 2022) and used the consumer application as if the data was from today. In fact, there was a long period without data in between. However, the consumer app would work the same way if we had used near real-time data.
 
-- In our mock scenario all messages are send in a bulk stream (more or less); nevertheless we have the time-stamps of the real observations.
-
-- The consumer doesnt wait for messages but pulls data from the stream; this is different from what we  do with stream processors that may be triggered by incoming data within the Kafka environment.
-
-- The data range used in the tutorial was older, however, in a real-world scenarios all the components would work as a single file and would not need to be triggered separately. The data pulled from API would trigger the producer at the same time. The consumer on other end would pull messages in regular intervals or in fact can also be kept in listening mode 24x7
-
-By completing this series, you should've achieved some understanding about:
-
-- The advantages of having access to any kind of data in real-time
-- How real-time IoT sensors can be configured to stream data using Kafka
-- How to perform analytics on a stream of data
 
 **Interested In Learning More?**
 
-Check out the following links to enhance your learning about these topics:
+On the Internet you will find a wealth of resources on NRT processing of data streams. Here are some recommendations: 
+* MQTT.Org (2022): WebSite with information on MQTT, the de facto messaging protocol standard for IoT applications. https://mqtt.org
+* Warhner, Kai (2020): Apache Kafka + Kafka Connect + MQTT Connector + Sensor Data. A practical example on how to combine Kafka and MQTT. GitHub repository. https://github.com/kaiwaehner/kafka-connect-iot-mqtt-connector-example
+* Hughes, Jim (2021): GeoMesa – Big Data for GIS. FOSS4G 2021 Buenos Aires, October 1, 2021. Presentation:  https://www.geomesa.org/assets/outreach/foss4g-2021-streaming-data.pdf 
+* Mollenkopf, A. (2017): Applying Geospatial Analytics at a Massive Scale using Kafka, Spark & Elastic Search on DC/OS. MesosCon North America:  https://www.youtube.com/watch?v=sa4RiH1RXEA&ab_channel=TheLinuxFoundation
 
-- IoT Messaging In Real-World: https://mqtt.org
-- Kafka + MQTT Github: https://github.com/kaiwaehner/kafka-connect-iot-mqtt-connector-example
-- GeMesa - BigData for GIS Applications: https://www.geomesa.org/assets/outreach/foss4g-2021-streaming-data.pdf
-- Video On Real-Time Geospatial Analytics: https://www.youtube.com/watch?v=sa4RiH1RXEA&ab_channel=TheLinuxFoundation
 
 **Your feedback is welcome!**
 
 If you have identified shortcomings in this OER module or have ideas for improving the OER material, you are invited to add entries to the issue list in the [Github repository of this OER]( https://github.com/oer4sdi/OER-spatial-data-streaming).
-
