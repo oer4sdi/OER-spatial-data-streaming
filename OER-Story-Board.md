@@ -64,6 +64,8 @@ This section guides you through the installation and use of Docker, Kafka and Ju
 
 [Architecture diagram]
 
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/OER Streaming Architecture.svg" width="1000">
+
 Software components used in this tutorial
 
 * **Docker** allows us to package all needed software components as Docker Images and execute those images as Docker Containers in the Docker Environment, e.g. on Linux, Windows or Mac. With the docker-compose tool we can define multiple docker images and configure how they communicate with each other.
