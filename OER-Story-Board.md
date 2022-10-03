@@ -53,7 +53,7 @@ With the following slides we provide you with some context and background on pro
 
 * Please give one example each of geospatial near-real-time applications that support a) monitoring of a system b) detection of events c) triggering of measures
 * Please visit [openSenseMap](https://opensensemap.org) and find out, what sensors can tell you about the weather conditions in the city of Münster right now.
-* Please give at least two examples each for short term risks and long term risks of high PM 2.5 concentrations
+* Please give at least two examples each of the short-term and long-term risks of high PM 2.5 concentrations
 * What value does the WHO recommend for an annual mean PM 2.5 concentration that should not be exceeded?
 
 
