@@ -63,8 +63,8 @@ PM25 official thresholds
 # 3. Installing and using Apache Kafka and Jupyter Notebooks for analyzing PM 2.5 data streams
 
 This section guides you through the installation and use of Docker, Kafka and Jupyter Notebooks for analyzing PM 2.5 data streams. 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/ARE_RevisedStoryBoard/img/OER_Streaming_Architecture.svg" width="1000">
-Software components used in this tutorial
+
+Software components used in this tutorial:
 
 * **Docker** allows us to package all needed software components as Docker Images and execute those images as Docker Containers in the Docker Environment, e.g. on Linux, Windows or Mac. With the docker-compose tool we can define multiple docker images and configure how they communicate with each other.
 
@@ -74,6 +74,7 @@ Software components used in this tutorial
 
 * **Jupyter Notebook** is an interactive web-based environment for creating and using Notebook documents. It implements the reed-eval-print-loop (REPL), i.e., each document can have a sequence of input/output cells which may contain multimedia content or executable code (Python, R, Julia). Once the user activates a code cell, the print-output of the code will be inserted into the document. This supports both, describing a method or workflow, which involves code and direct interaction with the code as to learn and understand, how the code works. Following a common practice, our Notebook Documents have the extension ".ipynb".
 
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/ARE_RevisedStoryBoard/img/OER_Streaming_Architecture.svg" width="1000">
 We use docker to build and run three containers: 
 
 * The **Jupyter container** runs the Jupyter Notebook server. We’ll use three Jupyter Notebooks to implement and explain the software that is needed to support Step-1, Step-2 and Step-3 of our technical exercise.
@@ -87,22 +88,18 @@ In our exercise, we will first download PM 2.5 sensor data from the openSenseMap
 Please notice: In this exercise, we simplify a real-world scenario where many sensors (producer apps) would continuously send their data to the broker. Many consumer apps would sign up for topics of their interest, access the corresponding data in either push or pull mode and process the data in near real-time.
 
 
-
-
-
-
 ### 3.1 Installing the SW environment
 
 Now that we've gained some understanding of the workflow and the technologies involved, let's set up the software environment. 
 
 
-#### A) Installing Docker
+#### A) Install Docker
 
-To begin with, we will start by installing Docker. Please go to the official web site [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/) and follow the guidance which is provided there to install docker on your local computer (Linux, Windows or Mac). It is recommended to have at least 8GB RAM to support smooth functioning of Docker.
+Please go to the official web site [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/) and follow the guidance which is provided there to install docker on your local computer (Linux, Windows or Mac). It is recommended to have at least 8GB RAM to support smooth functioning of Docker.
 
-#### B) Downloading the sources from GitHub
+#### B) Download the sources from GitHub
 
-[Download](https://github.com/oer4sdi/OER-spatial-data-streaming/archive/refs/heads/main.zip) the zipfile for the code and unzip it in a location you want to use as a **Working Directory**.
+[Download](https://github.com/oer4sdi/OER-spatial-data-streaming/archive/refs/heads/main.zip) the zipfile for the code and unzip it in a location you want to use as a **WorkingDirectory**.
 
 Advanced users can also clone it using `git` from [here](https://github.com/oer4sdi/OER-spatial-data-streaming) using the following command
 
@@ -111,7 +108,7 @@ git clone https://github.com/oer4sdi/OER-spatial-data-streaming.git
 ```
 
 
-#### C) Starting The containers 
+#### C) Start the containers 
 
 Please ensure `docker` is up and running in background and open a `CMD/Terminal` in your OS.
 
@@ -190,7 +187,7 @@ After having completed the Notebook document, please come back and continue with
 
 Now that we have used the Notebook documents to perform and understand all the tasks of our exercise we shut down and clean up our working environment.
 
-In your terminal/CMD window that you used to build the docker images and start up the docker containers type `docker compose down` to shut down the docker containers. 
+In your `CMD/Terminal` window that you used to build the docker images type `docker compose down` to shut down the docker containers. 
 
 The docker images are still available in your docker environment. Next time when you want to run the environment, you can just use `docker compose up -d` to start up the containers again.
 
