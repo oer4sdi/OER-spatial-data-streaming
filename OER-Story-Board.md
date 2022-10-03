@@ -143,7 +143,7 @@ docker logs jupyter
 The output should look like this:
 <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/ARE_RevisedStoryBoard/img/Jupyter_CMD_1.svg" width="1000">
 
-Goto your browser and access the URL that starts with `http://127.0.0.1:8888/?token=` (please take the `token` from the previous command output).
+Goto your browser and access the URL that starts with `http://127.0.0.1:8888/?token=` (please take the `token` from your previous command output).
 
 You will see the UI of the Jupyter Notebook server which informs you about the files that are available and the documents that are currently running. Please open the folder “src” to see the three Notebook documents that are prepared for our exercise. 
 
@@ -153,8 +153,8 @@ Please start the first Notebook document `src/step_1_data_prep.ipynb` and activa
 
 Please be aware:
 * Some of the code cells need some time to complete the computing, i.e., please wait for the output before you continue with the next cell. 
-* Each cell works with the current state of the system, which is a result of the code and data that has been activated before. I.e., the order in which you activate cells matters. If you are not sure about the state of the system, please re-initialize the system by re-starting the kernel (see buttons in the Jupyter Notebook UI).
-* If you change the notebook (and you are invited to experiment with the code), the changes will be persisted in your notebook. If you are not sure about how to fix problems that occurred with your changes you still have the possibility to fall back on downloading a fresh copy of the notebook document from the OER code repository [here](https://github.com/oer4sdi/OER-spatial-data-streaming).
+* Each cell works with the current state of the system, which is a result of the computations that have been activated before. I.e., the order in which you activate cells is important. If you are not sure about the state of the system, please re-initialize the system by re-starting the kernel (see buttons in the Jupyter Notebook UI).
+* If you change the notebook (and you are invited to experiment with the code), the changes will be persisted in your notebook. If you are not sure about how to fix problems that occurred with your changes you still have the possibility to fall back on downloading a fresh copy of the notebook document from the OER code repository [here](https://github.com/oer4sdi/OER-spatial-data-streaming/src).
 
 After having completed the Notebook document please come back and continue with the next chapter of this tutorial.
 
