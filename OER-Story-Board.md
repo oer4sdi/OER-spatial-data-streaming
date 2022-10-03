@@ -27,11 +27,12 @@ You are free to use, alter and reproduce the tutorial (H5P content) under the te
 
 The OER4SDI project has been recommended by the Digital University NRW and is funded by the Ministry of Culture and Science NRW. 
 
-## 2. Background on IoT and analyzing PM2.5 data streams
 
-With the following slides we provide you with some context and background on processing streams of PM2.5 sensor data. 
+## 2. Background on the IoT and the analysis of PM2.5 data streams
 
-### 2.1 read and learn...
+With the following slides we provide you with some context and background on processing streams of PM 2.5 sensor data. 
+
+### 2.1 Read and learn...
 
 <img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/P1_00_Overview.svg" width="1000">
 
