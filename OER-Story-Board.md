@@ -99,6 +99,13 @@ Now that we've gained some understanding of the workflow and the technologies in
 
 To begin with, we will start by installing Docker. Please go to the official web site [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/) and follow the guidance which is provided there to install docker on your local computer (Linux, Windows or Mac). It is recommended to have at least 8GB RAM to support smooth functioning of Docker.
 
+#### Downloading the sources from GitHub
+
+Access the [GitHub-Repository](https://github.com/oer4sdi/OER-spatial-data-streaming) and use “code”+”download zip” to download all source that are needed to run this tutorial. 
+
+Unzip the file to a location you would like to use as a **Working Directory** for the data in this tutorial.
+
+
 #### Starting The containers 
 
 Please ensure `docker` is up and running in background and open a `Terminal/Command Prompt` in your OS.
