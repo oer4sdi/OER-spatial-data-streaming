@@ -110,7 +110,7 @@ git clone https://github.com/oer4sdi/OER-spatial-data-streaming.git
 
 Please ensure `docker` is up and running in background and open a `CMD/Terminal` in your OS.
 
-At the command prompt, change to the Working Directory (e.g. "OER-spatial-data-streaming-main") and start up the docker containers:
+At the command prompt, change to the WorkingDirectory (e.g. "OER-spatial-data-streaming-main") and start up the docker containers:
 
 ```
 cd OER-spatial-data-streaming-main
