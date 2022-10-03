@@ -64,7 +64,7 @@ This section guides you through the installation and use of Docker, Kafka and Ju
 
 [Architecture diagram]
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/OER Streaming Architecture.svg" width="1000">
+<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/OER_Streaming_Architecture.svg" width="1000">
 
 Software components used in this tutorial
 
