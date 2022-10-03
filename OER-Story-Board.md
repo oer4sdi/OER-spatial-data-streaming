@@ -154,7 +154,7 @@ Please start the first Notebook document `src/step_1_data_prep.ipynb` and activa
 Please be aware:
 * Some of the code cells need some time to complete the computing, i.e., please wait for the output before you continue with the next cell. 
 * Each cell works with the current state of the system, which is a result of the computations that have been activated before. I.e., the order in which you activate cells is important. If you are not sure about the state of the system, please re-initialize the system by re-starting the kernel (see buttons in the Jupyter Notebook UI).
-* If you change the notebook (and you are invited to experiment with the code), the changes will be persisted in your notebook. If you are not sure about how to fix problems that occurred with your changes you still have the possibility to fall back on downloading a fresh copy of the notebook document from the OER code repository [here](https://github.com/oer4sdi/OER-spatial-data-streaming/src).
+* If you change the notebook (and you are invited to experiment with the code), the changes will be persisted in your notebook. If you are not sure about how to fix problems that occurred with your changes you still have the possibility to fall back on downloading a fresh copy of the notebook document from the OER code repository [here](https://github.com/oer4sdi/OER-spatial-data-streaming/tree/ARE_RevisedStoryBoard/src).
 
 After having completed the Notebook document please come back and continue with the next chapter of this tutorial.
 
@@ -165,7 +165,7 @@ After we have downloaded the PM 2.5 sample data from openSenseMap we can now use
 
 From the Jupyter Notebook UI in your browser: please start the second Notebook document `src/step_2_producer.ipynb` and follow the guidance there. 
 
-Once you have successfully activated the sequence of cells in the Notebook document, you should see an output of messages confirming the transmission of all PM 2.5 measurements form the CSV file. 
+Once you have successfully activated the sequence of cells in the Notebook document, you should see an output of messages confirming the transmission of all PM 2.5 measurements from the CSV file. 
 
 After having completed the Notebook document, please come back and continue with the next chapter of this tutorial.
 
@@ -191,7 +191,7 @@ In your `CMD/Terminal` window that you used to build the docker images type `doc
 
 The docker images are still available in your docker environment. Next time when you want to run the environment, you can just use `docker compose up -d` to start up the containers again.
 
-If you want to remove the images as well from your docker environment type Docker images to get a list of the available images. Then use `docker image rm [image id]` to remove the images that you want to delete. 
+If you want to remove the images as well from your docker environment type `docker images` to get a list of the available images. Then use `docker image rm [image id]` to remove the images that you want to delete. 
 
 
 ## 4. Wrap up
@@ -207,7 +207,7 @@ We hope that you now have an idea of how to work with spatial data streams, even
 
 On the Internet you will find a wealth of resources on NRT processing of data streams. Here are some recommendations: 
 * MQTT.Org (2022): WebSite with information on MQTT, the de facto messaging protocol standard for IoT applications. https://mqtt.org
-* Warhner, Kai (2020): Apache Kafka + Kafka Connect + MQTT Connector + Sensor Data. A practical example on how to combine Kafka and MQTT. GitHub repository. https://github.com/kaiwaehner/kafka-connect-iot-mqtt-connector-example
+* Waehner, Kai (2020): Apache Kafka + Kafka Connect + MQTT Connector + Sensor Data. A practical example on how to combine Kafka and MQTT. GitHub repository. https://github.com/kaiwaehner/kafka-connect-iot-mqtt-connector-example
 * Hughes, Jim (2021): GeoMesa – Big Data for GIS. FOSS4G 2021 Buenos Aires, October 1, 2021. Presentation:  https://www.geomesa.org/assets/outreach/foss4g-2021-streaming-data.pdf 
 * Mollenkopf, A. (2017): Applying Geospatial Analytics at a Massive Scale using Kafka, Spark & Elastic Search on DC/OS. MesosCon North America:  https://www.youtube.com/watch?v=sa4RiH1RXEA&ab_channel=TheLinuxFoundation
 
