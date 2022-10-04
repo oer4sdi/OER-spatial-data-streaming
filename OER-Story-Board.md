@@ -1,4 +1,4 @@
-# OER on analyzing IoT air quality data streams using Kafka and Jupyter Notebooks  (work in progress!) x       
+# OER on analyzing IoT air quality data streams using Kafka and Jupyter Notebooks  (work in progress!)       
 
 
          	           	
