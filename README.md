@@ -1,5 +1,5 @@
           	
-# OER on analyzing IoT air quality data streams using Kafka and Jupyter Notebooks          
+# OER on analyzing IoT air quality data streams using Kafka and Jupyter Notebooks (Work in Progress!)          
 
 This repository contains all the materials used to create and publish an Open Educational Resource (OER) on processing spatial data streams. The OER module provides a) some background information on IoT and stream processing and b) technical guidance on how to use Kafka and Jupyter Notebooks (Python) to access and analyse data streams coming from IoT devices providing air quality data (e.g. PM2.5 sensor data). 
 
@@ -18,7 +18,7 @@ The OER is implemented as an  [H5P](https://h5p.org/) module that can be downloa
 - H5P editing environments such as the [H5P Official Editor](https://h5p.org/) or the lightweight [LUMI H5P editor](https://lumi.education/)
 - Content managament systems such as [Wordpress](https://wordpress.com/) with "H5P" plugin installed
 
-Simply download the H5P file, upload it to one of the environments and use it from there...
+Simply download just the H5P file, upload it to one of the environments and use it from there...
 
 ### Copyright and License Statement
 
