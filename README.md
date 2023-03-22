@@ -1,5 +1,5 @@
           	
-# OER on analyzing IoT air quality data streams using Kafka and Jupyter Notebooks (Work in Progress!)          
+# OER on analyzing IoT air quality data streams using Kafka and Jupyter Notebooks          
 
 This repository contains all the materials used to create and publish an Open Educational Resource (OER) on processing spatial data streams. The OER module provides a) some background information on IoT and stream processing and b) technical guidance on how to use Kafka and Jupyter Notebooks (Python) to access and analyse data streams coming from IoT devices providing air quality data (e.g. PM2.5 sensor data). 
 
