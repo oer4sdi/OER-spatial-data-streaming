@@ -31,7 +31,7 @@ Author
 
 ## Subject
 * Computer Science
-* Geoiformatics
+* Geoinformatics
 
 ## Abstract
 
