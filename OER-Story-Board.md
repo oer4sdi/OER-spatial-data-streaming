@@ -99,10 +99,10 @@ Please go to the official web site [https://docs.docker.com/get-docker/](https:/
 
 [Download](https://github.com/oer4sdi/OER-spatial-data-streaming/archive/refs/heads/main.zip) the zipfile for the code and unzip it in a location that you want to use as a **WorkingDirectory**.
 
-Advanced users can also clone it using `git` from [here](https://github.com/oer4sdi/OER-spatial-data-streaming) using the following command
+Advanced users can also clone it using `git` from using the following command
 
 ```
-git clone https://github.com/oer4sdi/OER-spatial-data-streaming.git
+git clone https://github.com/oer4sdi/OER-spatial-data-streaming
 ```
 
 
