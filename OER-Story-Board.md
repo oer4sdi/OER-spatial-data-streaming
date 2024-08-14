@@ -72,7 +72,7 @@ Software components used in this tutorial:
 
 * **Jupyter Notebook** is an interactive web-based environment for creating and using Notebook documents. It implements the reed-eval-print-loop (REPL), i.e., each document can have a sequence of input/output cells which may contain multimedia content or executable code (Python, R, Julia). Once the user activates a code cell, the print-output of the code will be inserted into the document. This supports both, describing a method or workflow, which involves code and direct interaction with the code as to learn and understand, how the code works. Following a common practice, our Notebook Documents have the extension ".ipynb".
 
-<img src="https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/img/OER_Streaming_Architecture.svg" width="1000">
+<img src="./img/OER_Streaming_Architecture.svg" width="1000">
 We use docker to build and run three containers: 
 
 * The **Jupyter container** runs the Jupyter Notebook server. We’ll use three Jupyter Notebooks to implement and explain the software that is needed to support Step-1, Step-2 and Step-3 of our technical exercise.
