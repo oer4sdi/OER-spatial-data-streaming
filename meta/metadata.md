@@ -7,7 +7,7 @@ These OER metadata follow the [OER4SDI metadata model](https://github.com/oer4sd
 
 Author
 * Name: Jaskaran Puri
-* Academic degree: -
+* Academic degree: 
 * ORCID: 
 * Organisation: University of Münster, Institute for Geoinformatics, Germany
 
@@ -54,7 +54,11 @@ This tutorial is designed for students and professionals who want to spend about
 
 This Tutorial has been developed at the Institute for Geoinformatics, University of Münster. Authors are Jaskaran Puri (main idea, technical tutorial) with contributions from Sandhya Rajendran, Thomas Kujawa and Albert Remke.
 
-You are free to use, alter and reproduce the tutorial (H5P content) under the terms of the CC-BY-SA 4.0 license. The Jupyter notebook can be used under the terms of the MIT license. Please see the [full license terms](https://github.com/oer4sdi/OER-spatial-data-streaming/blob/main/LICENSE.md).
+You are free to use, alter and share the tutorial under the terms of the [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode) license, unless explicitly stated otherwise for specific parts of the content. 
+
+The authors can be mentioned as follows: OER-Spatial-Data-Streaming (2024), CC-BY-SA 4.0, Jaskaran Puri, Albert Remke, www.uni-muenster.de
+
+All logos used are generally excluded.
 
 The OER4SDI project has been recommended by the Digital University NRW and is funded by the Ministry of Culture and Science NRW.
 
