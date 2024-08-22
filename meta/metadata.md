@@ -48,11 +48,9 @@ The module is structured as follows
 3. Installing and using Apache Kafka and Jupyter Notebooks for analyzing PM2.5 data streams
 4. Wrap up
 
-If you are mainly interested in the technical aspects, you can jump directly to chapter 3 where we guide you through the technical exercise. With the help of some self-tests you can check if you have understood the essential concepts and technologies.
-
 This tutorial is designed for students and professionals who want to spend about 90 minutes on improving their skills in developing applications based on real-time data. You should have some basic knowledge of Python and it wouldn't be bad if you already have some experience with Docker and Jupyter notebooks too. But don't worry, we will guide you through all those technologies and you can also use the tutorial to get your first hands-on experience with it.
 
-This Tutorial has been developed at the Institute for Geoinformatics, University of Münster. Authors are Jaskaran Puri (main idea, technical tutorial) with contributions from Sandhya Rajendran, Thomas Kujawa and Albert Remke.
+The tutorial has been developed at the Institute for Geoinformatics, University of Münster. Authors are Jaskaran Puri and Albert Remke, with contributions from Sandhya Rajendran and Thomas Kujawa.
 
 You are free to use, alter and share the tutorial under the terms of the [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode) license, unless explicitly stated otherwise for specific parts of the content. 
 
