@@ -1,4 +1,4 @@
-          	
+
 # OER on analyzing IoT air quality data streams using Kafka and Jupyter Notebooks          
 
 This repository contains all the materials used to create and publish an Open Educational Resource (OER) on processing spatial data streams. The OER module provides a) some background information on IoT and stream processing and b) technical guidance on how to use Kafka and Jupyter Notebooks (Python) to access and analyse data streams coming from IoT devices providing air quality data (e.g. PM2.5 sensor data). 
@@ -22,22 +22,16 @@ Simply download just the H5P file, upload it to one of the environments and use 
 
 ### Copyright and License Statement
 
-Copyright (c) 2022 [University of Münster](https://www.uni-muenster.de/en/)
+Copyright (c) 2024 [University of Münster](https://www.uni-muenster.de/en/)
 
-a) You are free to use, alter and reproduce the tutorial (H5P content) under the terms of the [CC-BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/legalcode). 
+You are free to use, alter and share the tutorial under the terms of the [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode) license, unless explicitly stated otherwise for specific parts of the content. 
 
-b) Any source code contained or delivered with the OER modoule can be used under the terms of the MIT license:
+The authors can be mentioned as follows: OER-Spatial-Data-Streaming (2024), CC-BY-SA 4.0, Jaskaran Puri, Albert Remke, www.uni-muenster.de
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+All logos used are generally excluded.
 
-* The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Any code provided with the tutorial can be used under the terms of the MIT license. Please see the [full license terms](/LICENSE.md).
 
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE. 
 
 ### Authors and funding
 
