@@ -13,12 +13,7 @@ The OER is designed for students and professionals who want to improve their ski
 
 ### How to use the OER Module
 
-The OER is implemented as an  [H5P](https://h5p.org/) module that can be downloaded and embedded into any H5P runtime environment, such as: 
-- Learning management systems based on Moodle or Ilias 
-- H5P editing environments such as the [H5P Official Editor](https://h5p.org/) or the lightweight [LUMI H5P editor](https://lumi.education/)
-- Content managament systems such as [Wordpress](https://wordpress.com/) with "H5P" plugin installed
-
-Simply download just the H5P file, upload it to one of the environments and use it from there...
+Simply download the [PDF file](\docs\OERSpatialDataStreaming.pdf), read and follow the tutorial..
 
 ### Copyright and License Statement
 
