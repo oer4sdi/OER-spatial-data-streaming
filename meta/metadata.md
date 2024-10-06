@@ -42,7 +42,7 @@ The tutorial has been developed at the Institute for Geoinformatics, University 
 
 You are free to use, alter and share the tutorial under the terms of the [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode) license, unless explicitly stated otherwise for specific parts of the content. 
 
-The authors can be mentioned as follows: OER-Spatial-Data-Streaming (2024), Jaskaran Puri, Albert Remke, [University of Münster](www.uni-muenster.de), CC-BY-SA 4.0. 
+The tutorial can be referenced as follows: “OER-SpatialDataStreaming”, OER4SDI project / University Münster,[ CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode.en).
 
 All logos used are generally excluded.
 
